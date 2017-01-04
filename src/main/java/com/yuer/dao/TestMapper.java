@@ -1,5 +1,7 @@
 package com.yuer.dao;
 
+import java.util.List;
+
 import com.yuer.model.Test;
 
 public interface TestMapper {
@@ -16,4 +18,6 @@ public interface TestMapper {
     int updateByPrimaryKey(Test record);
     
     Test abc();
+    
+    List<Test> testlist();
 }

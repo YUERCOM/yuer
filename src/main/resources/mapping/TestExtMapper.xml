@@ -4,4 +4,7 @@
   <select id="abc" resultType="com.yuer.model.Test">
   	select * from test where id = 1
   </select>
+  <select id="testlist" resultType="com.yuer.model.Test">
+  	select * from test
+  </select>
 </mapper>

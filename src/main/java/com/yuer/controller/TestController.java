@@ -1,10 +1,17 @@
 package com.yuer.controller;
 
+import java.io.IOException;
+
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.github.pagehelper.PageInfo;
 import com.yuer.model.Test;
 import com.yuer.service.TestService;
 
@@ -16,9 +23,17 @@ public class TestController {
 	private TestService testService;
 	
 	@RequestMapping(value="/abc",method=RequestMethod.GET)
-	public void abc(){
+	public @ResponseBody String abc(){
 		Test test = testService.abc();
 		System.out.println(test.getName());
+		return "abc";
+	}
+	
+	@RequestMapping(value="/testlist",method=RequestMethod.GET,produces = "application/json; charset=UTF-8")
+	public @ResponseBody String testlist() throws JsonGenerationException, JsonMappingException, IOException{
+		PageInfo<Test> testlist = testService.testlist();
+		ObjectMapper mapper = new ObjectMapper();
+		return mapper.writeValueAsString(testlist);
 	}
 	
 }
