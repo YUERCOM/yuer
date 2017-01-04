@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.github.pagehelper.PageInfo;
 import com.yuer.model.Test;
 import com.yuer.service.TestService;
+import com.yuer.util.YuerCoreUtils;
+import com.yuer.util.YuerJsonUtils;
 
 @RequestMapping(value="/test")
 @Controller
@@ -26,7 +28,8 @@ public class TestController {
 	public @ResponseBody String abc(){
 		Test test = testService.abc();
 		System.out.println(test.getName());
-		return "abc";
+		YuerCoreUtils.getProperty("email.linlei");
+		return YuerCoreUtils.getProperty("email.linlei");
 	}
 	
 	@RequestMapping(value="/testlist",method=RequestMethod.GET,produces = "application/json; charset=UTF-8")
@@ -35,5 +38,25 @@ public class TestController {
 		ObjectMapper mapper = new ObjectMapper();
 		return mapper.writeValueAsString(testlist);
 	}
+	
+	
+	
+	public static void main(String[] args) {
+		Test test = new Test();
+		test.setId(1);
+		test.setName("张三");
+		test.setSex(20);
+		String testJson = YuerJsonUtils.objToJson(test);
+		System.out.println(testJson);
+		
+		Test test2 = YuerJsonUtils.jsonToObj(testJson, Test.class);
+		System.out.println(test2.getName());
+		
+		
+		
+		
+		
+	}
+	
 	
 }

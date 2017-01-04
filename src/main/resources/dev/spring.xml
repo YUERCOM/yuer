@@ -32,7 +32,12 @@
         <property name="username" value="${jdbc.username}"></property>
         <property name="password" value="${jdbc.password}"></property>
     </bean>  
-  
+	
+	<bean id="yuerCoreUtils" class="com.yuer.util.YuerCoreUtils">
+		<property name="location">
+            <value>classpath:dev/core.properties</value>
+        </property>
+	</bean>  
   
     <!-- sessionFactory 将spring和mybatis整合 -->  
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
