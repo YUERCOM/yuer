@@ -20,12 +20,12 @@
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 
-		<sqlMapGenerator targetPackage="mapping"
+		<sqlMapGenerator targetPackage="mapper"
 			targetProject="manager\src\main\resources">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 
-		<javaClientGenerator targetPackage="com.yuer.dao"
+		<javaClientGenerator targetPackage="com.yuer.mapper"
 			targetProject="manager\src\main\java"
 			type="XMLMAPPER">
 			<property name="enableSubPackages" value="true" />

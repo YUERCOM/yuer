@@ -1,6 +1,7 @@
 package com.yuer.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
@@ -15,8 +16,10 @@ import com.github.pagehelper.PageInfo;
 import com.yuer.model.Test;
 import com.yuer.service.TestService;
 import com.yuer.util.MD5;
+import com.yuer.util.YResult;
 import com.yuer.util.YuerCoreUtils;
 import com.yuer.util.YuerJsonUtils;
+import com.yuer.util.YuerUtils;
 
 @RequestMapping(value="/test")
 @Controller
@@ -33,13 +36,17 @@ public class TestController {
 		return YuerCoreUtils.getProperty("email.linlei");
 	}
 	
-	@RequestMapping(value="/testlist",method=RequestMethod.GET,produces = "application/json; charset=UTF-8")
-	public @ResponseBody String testlist() throws JsonGenerationException, JsonMappingException, IOException{
-		PageInfo<Test> testlist = testService.testlist();
-		ObjectMapper mapper = new ObjectMapper();
-		return mapper.writeValueAsString(testlist);
+	@RequestMapping(value="/testlist",method=RequestMethod.GET,produces = YuerUtils.APPLICATION_JSON)
+	public @ResponseBody String testlist(){
+		PageInfo<Test> testlist = testService.testlist(1,5);
+		return YuerJsonUtils.objToJson(new YResult(testlist));
 	}
-	
+
+	@RequestMapping(value="/testlist1",method=RequestMethod.GET,produces = YuerUtils.APPLICATION_JSON)
+	public @ResponseBody String testlist1(){
+		List<Test> testlist = testService.testlist1();
+		return YuerJsonUtils.objToJson(new YResult(testlist));
+	}
 	
 	
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.yuer.dao;
+package com.yuer.mapper;
 
 import java.util.List;
 

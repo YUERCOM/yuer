@@ -43,10 +43,10 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
         <property name="dataSource" ref="dataSource" />  
         <property name="configLocation" value="classpath:dev/spring-mybatis.xml" />  
-        <property name="mapperLocations" value="classpath:mapping/*.xml" />  
+        <property name="mapperLocations" value="classpath:mapper/*.xml" />  
     </bean>  
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
-        <property name="basePackage" value="com.yuer.dao" />  
+        <property name="basePackage" value="com.yuer.mapper" />  
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />  
     </bean>  
   
