@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.github.pagehelper.PageInfo;
 import com.yuer.model.Test;
 import com.yuer.service.TestService;
+import com.yuer.util.MD5;
 import com.yuer.util.YuerCoreUtils;
 import com.yuer.util.YuerJsonUtils;
 
@@ -42,15 +43,17 @@ public class TestController {
 	
 	
 	public static void main(String[] args) {
-		Test test = new Test();
-		test.setId(1);
-		test.setName("张三");
-		test.setSex(20);
-		String testJson = YuerJsonUtils.objToJson(test);
-		System.out.println(testJson);
+//		Test test = new Test();
+//		test.setId(1);
+//		test.setName("张三");
+//		test.setSex(20);
+//		String testJson = YuerJsonUtils.objToJson(test);
+//		System.out.println(testJson);
+//		
+//		Test test2 = YuerJsonUtils.jsonToObj(testJson, Test.class);
+//		System.out.println(test2.getName());
 		
-		Test test2 = YuerJsonUtils.jsonToObj(testJson, Test.class);
-		System.out.println(test2.getName());
+		System.out.println(MD5.calculate("nicai_1128"));
 		
 		
 		
