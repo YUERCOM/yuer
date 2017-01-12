@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- ======================== 定义   作业类   ======================== -->
+	<bean id="springQtzJob" class="com.yuer.spring.quartz.SpringQtz"/>
+	
+	<!-- ======================== 指定   作业类   中要执行的方法   ======================== -->
+	<bean id="springQtzJobMethod" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="springQtzJob"/>
+		</property>
+		<property name="targetMethod">
+			<value>execute</value>
+		</property>
+		<!-- true:允许并发,方法没有执行完成前可以再启动该方法 ;false:不允许并发,后续任务推迟执行 -->
+		<property name="concurrent">
+	        <value>false</value>
+	    </property>
+	</bean>
+	
+	<!-- ======================== 调度触发器 ======================== -->
+	<bean id="springQtzCronTriggerBean" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="springQtzJobMethod"/>
+		</property>
+		<property name="cronExpression">
+			<value>0/10 * * * * ?</value>
+		</property>
+	</bean>
+	
+	<!-- ======================== 调度工厂 ======================== -->
+	<bean id="SpringJobSchedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="springQtzCronTriggerBean"/>
+			</list>
+		</property>
+	</bean>
+	
+</beans>
