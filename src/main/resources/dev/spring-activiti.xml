@@ -7,20 +7,6 @@
            http://www.springframework.org/schema/context 
            http://www.springframework.org/schema/context/spring-context.xsd">
 	
-	<context:property-placeholder location="classpath:dev/jdbc.properties" /> 
-	
-	<bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration">    
-		<property name="databaseType" value="${database.type}" />
-		<property name="jdbcDriver" value="${jdbc.driver}" />
-		<property name="jdbcUrl"  value="${jdbc.url}" />
-		<property name="jdbcUsername" value="${jdbc.username}" />
-		<property name="jdbcPassword" value="${jdbc.password}" />
-		<property name="databaseSchemaUpdate" value="true" />
-	</bean>
-	
-	<bean id="processEngine" class="org.activiti.spring.ProcessEngineFactoryBean">
-         <property name="processEngineConfiguration" ref="processEngineConfiguration"></property>
-    </bean>
     <bean id="repositoryService" factory-bean="processEngine" factory-method="getRepositoryService"/>
     <bean id="runtimeService" factory-bean="processEngine" factory-method="getRuntimeService"/>
     <bean id="formService" factory-bean="processEngine" factory-method="getFormService"/>

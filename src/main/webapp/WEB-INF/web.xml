@@ -7,12 +7,12 @@
 	<!-- 配置 Spring -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:dev/spring.xml</param-value>
+		<param-value>
+			classpath:dev/spring.xml;
+			classpath:dev/spring-activiti.xml
+		</param-value>
 	</context-param>
-	<!-- <context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:dev/activiti.cfg.xml</param-value>
-	</context-param> -->
+	
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
