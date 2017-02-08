@@ -60,7 +60,9 @@ public class TestController {
 //		Test test2 = YuerJsonUtils.jsonToObj(testJson, Test.class);
 //		System.out.println(test2.getName());
 		
-		System.out.println(MD5.calculate("nicai_1128"));
+		System.out.println(MD5.calculate("张三"));
+		System.out.println(MD5.calculate("李四"));
+		System.out.println(MD5.calculate("wangwu"));
 		
 		
 		

@@ -6,11 +6,53 @@
 	
 	<!-- ======================== 定义   作业类   ======================== -->
 	<bean id="springQtzJob" class="com.yuer.spring.quartz.SpringQtz"/>
+	<bean id="cfnm002QtzJob" class="com.yuer.util.http.quartz.CFNM002Qtz"/>
+	<bean id="am001QtzJob" class="com.yuer.util.http.quartz.AM001Qtz"/>
+	<bean id="am002QtzJob" class="com.yuer.util.http.quartz.AM002Qtz"/>
 	
 	<!-- ======================== 指定   作业类   中要执行的方法   ======================== -->
 	<bean id="springQtzJobMethod" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
 		<property name="targetObject">
 			<ref bean="springQtzJob"/>
+		</property>
+		<property name="targetMethod">
+			<value>execute</value>
+		</property>
+		<!-- true:允许并发,方法没有执行完成前可以再启动该方法 ;false:不允许并发,后续任务推迟执行 -->
+		<property name="concurrent">
+	        <value>false</value>
+	    </property>
+	</bean>
+	
+	<bean id="cfnm002QtzJobMethod" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="cfnm002QtzJob"/>
+		</property>
+		<property name="targetMethod">
+			<value>execute</value>
+		</property>
+		<!-- true:允许并发,方法没有执行完成前可以再启动该方法 ;false:不允许并发,后续任务推迟执行 -->
+		<property name="concurrent">
+	        <value>false</value>
+	    </property>
+	</bean>
+	
+	<bean id="am001QtzJobMethod" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="am001QtzJob"/>
+		</property>
+		<property name="targetMethod">
+			<value>execute</value>
+		</property>
+		<!-- true:允许并发,方法没有执行完成前可以再启动该方法 ;false:不允许并发,后续任务推迟执行 -->
+		<property name="concurrent">
+	        <value>false</value>
+	    </property>
+	</bean>
+	
+	<bean id="am002QtzJobMethod" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="am002QtzJob"/>
 		</property>
 		<property name="targetMethod">
 			<value>execute</value>
@@ -27,7 +69,34 @@
 			<ref bean="springQtzJobMethod"/>
 		</property>
 		<property name="cronExpression">
-			<value>0/10 * * * * ?</value>
+			<value>0/30 * * * * ?</value>
+		</property>
+	</bean>
+	
+	<bean id="cfnm002QtzCronTriggerBean" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="cfnm002QtzJobMethod"/>
+		</property>
+		<property name="cronExpression">
+			<value>0/30 * * * * ?</value>
+		</property>
+	</bean>
+	
+	<bean id="am001QtzCronTriggerBean" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="am001QtzJobMethod"/>
+		</property>
+		<property name="cronExpression">
+			<value>0/30 * * * * ?</value>
+		</property>
+	</bean>
+	
+	<bean id="am002QtzCronTriggerBean" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="am002QtzJobMethod"/>
+		</property>
+		<property name="cronExpression">
+			<value>0/30 * * * * ?</value>
 		</property>
 	</bean>
 	
@@ -35,7 +104,10 @@
 	<bean id="SpringJobSchedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
 		<property name="triggers">
 			<list>
-				<ref bean="springQtzCronTriggerBean"/>
+				<!-- <ref bean="springQtzCronTriggerBean"/> -->
+				<ref bean="cfnm002QtzCronTriggerBean"/>
+				<ref bean="am001QtzCronTriggerBean"/>
+				<ref bean="am002QtzCronTriggerBean"/>
 			</list>
 		</property>
 	</bean>

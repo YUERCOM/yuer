@@ -14,11 +14,11 @@ public class SpringQtz {
 		
 		System.out.println("(" + count++ + ")");
 		System.out.println(Thread.currentThread().getName() + "正在执行查询...");
-		Thread.sleep(5000);
+//		Thread.sleep(5000);
 		System.out.println(Thread.currentThread().getName() + "正在执行删除...");
-		Thread.sleep(5000);
+//		Thread.sleep(5000);
 		System.out.println(Thread.currentThread().getName() + "删除成功...");
-		Thread.sleep(5000);
+//		Thread.sleep(5000);
 		
 	}
 	
