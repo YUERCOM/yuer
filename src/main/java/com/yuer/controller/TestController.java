@@ -48,6 +48,10 @@ public class TestController {
 		return YuerJsonUtils.objToJson(new YResult(testlist));
 	}
 	
+	@RequestMapping(value="/index",method=RequestMethod.GET,produces = YuerUtils.APPLICATION_JSON)
+	public String index(){
+		return "index";
+	}
 	
 	public static void main(String[] args) {
 //		Test test = new Test();

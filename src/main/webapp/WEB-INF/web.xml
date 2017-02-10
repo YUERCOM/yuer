@@ -9,7 +9,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 			classpath:dev/spring.xml;
-			classpath:dev/spring-quartz.xml
+			<!-- classpath:dev/spring-quartz.xml -->
 		</param-value>
 	</context-param>
 	<listener>

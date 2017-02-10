@@ -1,0 +1,1 @@
+var dwz_frag_xml="http://localhost:8071/manager/static/js/dwz.frag.xml";
