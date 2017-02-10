@@ -106,8 +106,8 @@
 			<list>
 				<!-- <ref bean="springQtzCronTriggerBean"/> -->
 				<ref bean="cfnm002QtzCronTriggerBean"/>
-				<ref bean="am001QtzCronTriggerBean"/>
-				<ref bean="am002QtzCronTriggerBean"/>
+				<!-- <ref bean="am001QtzCronTriggerBean"/> -->
+				<!-- <ref bean="am002QtzCronTriggerBean"/> -->
 			</list>
 		</property>
 	</bean>

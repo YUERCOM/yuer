@@ -6,15 +6,15 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 @JsonSerialize(include=Inclusion.NON_NULL)
 public class CFDM001 {
-	@JsonProperty("DEID")
+	@JsonProperty("deCode")
 	private String deId;//设备标识
-	@JsonProperty("DE_NAME")
+	@JsonProperty("deName")
 	private String deName;//设备名称
-	@JsonProperty("DE_TYPE")
+	@JsonProperty("deType")
 	private String deType;//设备类型
-	@JsonProperty("DE_VERSION")
+	@JsonProperty("deVersion")
 	private String deVersion;//设备版本
-	@JsonProperty("DE_VENDOR")
+	@JsonProperty("deFactory")
 	private String deVendor;//设备厂商
 	@JsonProperty("DE_ALARM_STATE")
 	private String deAlarmState;//设备告警状态

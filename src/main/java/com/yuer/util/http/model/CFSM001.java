@@ -6,21 +6,23 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 @JsonSerialize(include=Inclusion.NON_NULL)
 public class CFSM001 {
-	@JsonProperty("SUID")
+	@JsonProperty("deCode")
+	private String deCode;
+	@JsonProperty("dpCode")
 	private String suId;//检测点标识
 	@JsonProperty("SU_PARENT_ID")
 	private String suParentId;//父资源标识
 	@JsonProperty("SU_PARENT_TYPE")
 	private String suParentType;//父资源类型
-	@JsonProperty("SU_NAME")
+	@JsonProperty("dpName")
 	private String suName;//监测点名称
-	@JsonProperty("SU_SN")
+	@JsonProperty("dpNumber")
 	private String suSn;//监测点序号
-	@JsonProperty("SU_TYPE")
+	@JsonProperty("dpQuanitity")
 	private String suType;//监测点类型
-	@JsonProperty("SU_SERVER_STATE")
+	@JsonProperty("dpServerStatus")
 	private String suServerState;//监测点服务状态
-	@JsonProperty("SU_UNIT")
+	@JsonProperty("dpUnit")
 	private String suUnit;//遥测单位
 	@JsonProperty("SU_QUANTITY")
 	private Integer suQuantity;
@@ -77,6 +79,12 @@ public class CFSM001 {
 	}
 	public void setSuQuantity(Integer suQuantity) {
 		this.suQuantity = suQuantity;
+	}
+	public String getDeCode() {
+		return deCode;
+	}
+	public void setDeCode(String deCode) {
+		this.deCode = deCode;
 	}
 	
 }

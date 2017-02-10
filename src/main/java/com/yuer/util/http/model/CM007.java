@@ -5,24 +5,26 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 @JsonSerialize(include=Inclusion.NON_NULL)
-public class CM007 {
-	@JsonProperty("SUID")
+public class CM007 extends DCIM {
+	@JsonProperty("peCode")
+	private String peCode;
+	@JsonProperty("dpCode")
 	private String suId;//监测点标识
-	@JsonProperty("DEID")
+	@JsonProperty("deCode")
 	private String deId;//设备标识
 	@JsonProperty("PM_TYPE")
 	private String pmType;//性能监测点类型
-	@JsonProperty("PM_PARAM_NAME")
+	@JsonProperty("peName")
 	private String pmParamName;//性能监测参数名称
-	@JsonProperty("PM_PARAM_UNIT")
+	@JsonProperty("peUnit")
 	private String pmParamUnit;//性能监测参数单位
-	@JsonProperty("PM_PARAM_VALUE")
+	@JsonProperty("peCount")
 	private String pmParamValue;//性能监测参数值
 	@JsonProperty("PM_TIME")
 	private String pmTime;//性能监测时间，格式：YYYY-MM-DD HH:MM:SS
-	@JsonProperty("PM_PERIOD")
+	@JsonProperty("peCycle")
 	private String pmPeriod;//性能监测周期
-	@JsonProperty("PM_LOCATION")
+	@JsonProperty("pePosition")
 	private String pmLocation;//性能监测位置
 	public String getDeId() {
 		return deId;
@@ -77,6 +79,12 @@ public class CM007 {
 	}
 	public void setSuId(String suId) {
 		this.suId = suId;
+	}
+	public String getPeCode() {
+		return peCode;
+	}
+	public void setPeCode(String peCode) {
+		this.peCode = peCode;
 	}
 	
 }

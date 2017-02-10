@@ -3,21 +3,21 @@ package com.yuer.util.http.model;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 public class AM009{
-	@JsonProperty("ALID")
+	@JsonProperty("wpCode")
 	private String alId;//告警流水号
 	@JsonProperty("AL_OBJ_TYPE")
 	private String alObjType;//告警对象类型
 	@JsonProperty("AL_OBJ_ID")
 	private String alObjId;//告警对象标识
-	@JsonProperty("AL_CAUSE")
+	@JsonProperty("wpCause")
 	private String alCause;//告警原因
-	@JsonProperty("AL_LEVEL")
+	@JsonProperty("wpLevel")
 	private String alLevel;//告警级别
-	@JsonProperty("AL_TYPE")
+	@JsonProperty("wpType")
 	private String alType;//告警类型
-	@JsonProperty("AL_CREATE_TIME")
+	@JsonProperty("createTime")
 	private String alCreateTime;//告警产生时间
-	@JsonProperty("AL_DESC")
+	@JsonProperty("wpDesc")
 	private String alDesc;//告警描述
 	public String getAlId() {
 		return alId;

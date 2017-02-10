@@ -40,7 +40,7 @@ public class GetData {
 			am009.setAlObjType("告警对象类型1");
 			am009.setAlObjId("11");
 			am009.setAlCause("告警原因1");
-			am009.setAlLevel("告警级别1");
+			am009.setAlLevel("1");
 			am009.setAlType("告警类型1");
 			am009.setAlCreateTime(sdf.format(new Date()));
 			am009.setAlDesc("告警描述1");
@@ -52,7 +52,7 @@ public class GetData {
 			am009.setAlObjType("告警对象类型2");
 			am009.setAlObjId("22");
 			am009.setAlCause("告警原因2");
-			am009.setAlLevel("告警级别2");
+			am009.setAlLevel("2");
 			am009.setAlType("告警类型2");
 			am009.setAlCreateTime(sdf.format(new Date()));
 			am009.setAlDesc("告警描述2");
@@ -64,7 +64,7 @@ public class GetData {
 			am009.setAlObjType("告警对象类型3");
 			am009.setAlObjId("33");
 			am009.setAlCause("告警原因3");
-			am009.setAlLevel("告警级别3");
+			am009.setAlLevel("3");
 			am009.setAlType("告警类型3");
 			am009.setAlCreateTime(sdf.format(new Date()));
 			am009.setAlDesc("告警描述3");
@@ -118,19 +118,19 @@ public class GetData {
 		{
 			CFDM001 cfdm001 = new CFDM001();
 			cfdm001.setDeId("设备标识_1");
-			cfdm001.setDeName("设备名称_1");
-			cfdm001.setDeType("设备类型_1");
-			cfdm001.setDeVersion("设备版本_1");
-			cfdm001.setDeVendor("设备厂商_1");
+			cfdm001.setDeName("设备名称_11");
+			cfdm001.setDeType("设备类型_11");
+			cfdm001.setDeVersion("设备版本_11");
+			cfdm001.setDeVendor("设备厂商_11");
 			list.add(cfdm001);
 		}
 		{
 			CFDM001 cfdm001 = new CFDM001();
 			cfdm001.setDeId("设备标识_2");
-			cfdm001.setDeName("设备名称_2");
-			cfdm001.setDeType("设备类型_2");
-			cfdm001.setDeVersion("设备版本_2");
-			cfdm001.setDeVendor("设备厂商_2");
+			cfdm001.setDeName("设备名称_22");
+			cfdm001.setDeType("设备类型_22");
+			cfdm001.setDeVersion("设备版本_22");
+			cfdm001.setDeVendor("设备厂商_22");
 			list.add(cfdm001);
 		}
 		{
@@ -160,6 +160,7 @@ public class GetData {
 		List<CFSM001> list = new ArrayList<>();
 		{
 			CFSM001 cfsm001 = new CFSM001();
+			cfsm001.setDeCode("设备标识_1");
 			cfsm001.setSuId("监测点标识_1");
 			cfsm001.setSuParentId("父资源标识_1");
 			cfsm001.setSuParentType("父资源类型_1");
@@ -172,6 +173,7 @@ public class GetData {
 		}
 		{
 			CFSM001 cfsm001 = new CFSM001();
+			cfsm001.setDeCode("设备标识_2");
 			cfsm001.setSuId("监测点标识_2");
 			cfsm001.setSuParentId("父资源标识_2");
 			cfsm001.setSuParentType("父资源类型_2");
@@ -184,6 +186,7 @@ public class GetData {
 		}
 		{
 			CFSM001 cfsm001 = new CFSM001();
+			cfsm001.setDeCode("设备标识_3");
 			cfsm001.setSuId("监测点标识_3");
 			cfsm001.setSuParentId("父资源标识_3");
 			cfsm001.setSuParentType("父资源类型_3");
@@ -210,26 +213,33 @@ public class GetData {
 		return cfsm001;
 	}
 	
-	public static List<CM007> getCm007s(){
+	public static CM007 getCm007s(){
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		List<CM007> list = new ArrayList<>();
-		{
-			CM007 cm007 = new CM007();
-			cm007.setPmParamName("性能监测参数名称_1");
-			cm007.setPmParamUnit("性能监测参数单位_1");
-			cm007.setPmParamValue("性能监测参数值_1");
-			cm007.setPmTime(sdf.format(new Date()));
-			list.add(cm007);
-		}
-		{
-			CM007 cm007 = new CM007();
-			cm007.setPmParamName("性能监测参数名称_2");
-			cm007.setPmParamUnit("性能监测参数单位_2");
-			cm007.setPmParamValue("性能监测参数值_2");
-			cm007.setPmTime(sdf.format(new Date()));
-			list.add(cm007);
-		}
-		return list;
+		CM007 cm007 = new CM007();
+		cm007.setPeCode("性能编号_1");
+		cm007.setPmParamName("性能监测参数名称_1");
+		cm007.setPmParamUnit("性能监测参数单位_1");
+		cm007.setPmParamValue("11");
+		cm007.setPmPeriod("性能检测周期_1");
+		cm007.setPmTime(sdf.format(new Date()));
+//		List<CM007> list = new ArrayList<>();
+//		{
+//			CM007 cm007 = new CM007();
+//			cm007.setPmParamName("性能监测参数名称_1");
+//			cm007.setPmParamUnit("性能监测参数单位_1");
+//			cm007.setPmParamValue("性能监测参数值_1");
+//			cm007.setPmTime(sdf.format(new Date()));
+//			list.add(cm007);
+//		}
+//		{
+//			CM007 cm007 = new CM007();
+//			cm007.setPmParamName("性能监测参数名称_2");
+//			cm007.setPmParamUnit("性能监测参数单位_2");
+//			cm007.setPmParamValue("性能监测参数值_2");
+//			cm007.setPmTime(sdf.format(new Date()));
+//			list.add(cm007);
+//		}
+		return cm007;
 	}
 	
 	public static List<CM007> getCm008s(){
@@ -237,45 +247,68 @@ public class GetData {
 		List<CM007> list = new ArrayList<>();
 		{
 			CM007 cm007 = new CM007();
-			cm007.setPmLocation("性能监测位置_1");
-			cm007.setPmParamName("性能监测参数名称_1");
-			cm007.setPmParamUnit("性能监测参数单位_1");
-			cm007.setPmParamValue("性能监测参数值_1");
+			cm007.setPeCode("性能编号_1");
+			cm007.setPmLocation("性能监测位置_11");
+			cm007.setPmParamName("性能监测参数名称_11");
+			cm007.setPmParamUnit("性能监测参数单位_11");
+			cm007.setPmParamValue("111");
+			cm007.setPmPeriod("性能检测周期_11");
 			cm007.setPmTime(sdf.format(new Date()));
 			list.add(cm007);
 		}
 		{
 			CM007 cm007 = new CM007();
+			cm007.setPeCode("性能编号_2");
 			cm007.setPmLocation("性能监测位置_2");
 			cm007.setPmParamName("性能监测参数名称_2");
 			cm007.setPmParamUnit("性能监测参数单位_2");
-			cm007.setPmParamValue("性能监测参数值_2");
+			cm007.setPmParamValue("11");
+			cm007.setPmPeriod("性能检测周期_1");
+			cm007.setPmTime(sdf.format(new Date()));
+			list.add(cm007);
+		}
+		{
+			CM007 cm007 = new CM007();
+			cm007.setPeCode("性能编号_3");
+			cm007.setPmLocation("性能监测位置_3");
+			cm007.setPmParamName("性能监测参数名称_3");
+			cm007.setPmParamUnit("性能监测参数单位_3");
+			cm007.setPmParamValue("33");
+			cm007.setPmPeriod("性能检测周期_3");
 			cm007.setPmTime(sdf.format(new Date()));
 			list.add(cm007);
 		}
 		return list;
 	}
 	
-	public static List<CM007> getCm009s(){
+	public static CM007 getCm009s(){
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		List<CM007> list = new ArrayList<>();
-		{
-			CM007 cm007 = new CM007();
-			cm007.setPmParamName("性能监测参数名称_1");
-			cm007.setPmParamUnit("性能监测参数单位_1");
-			cm007.setPmParamValue("性能监测参数值_1");
-			cm007.setPmTime(sdf.format(new Date()));
-			list.add(cm007);
-		}
-		{
-			CM007 cm007 = new CM007();
-			cm007.setPmParamName("性能监测参数名称_2");
-			cm007.setPmParamUnit("性能监测参数单位_2");
-			cm007.setPmParamValue("性能监测参数值_2");
-			cm007.setPmTime(sdf.format(new Date()));
-			list.add(cm007);
-		}
-		return list;
+		CM007 cm007 = new CM007();
+		cm007.setPeCode("性能编号_1");
+		cm007.setPmParamName("性能监测参数名称_1");
+		cm007.setPmParamUnit("性能监测参数单位_1");
+		cm007.setPmParamValue("11");
+		cm007.setPmPeriod("性能检测周期_1");
+		cm007.setPmTime(sdf.format(new Date()));
+//		List<CM007> list = new ArrayList<>();
+//		{
+//			CM007 cm007 = new CM007();
+//			cm007.setPeCode("性能编号_3");
+//			cm007.setPmParamName("性能监测参数名称_1");
+//			cm007.setPmParamUnit("性能监测参数单位_1");
+//			cm007.setPmParamValue("性能监测参数值_1");
+//			cm007.setPmTime(sdf.format(new Date()));
+//			list.add(cm007);
+//		}
+//		{
+//			CM007 cm007 = new CM007();
+//			cm007.setPmParamName("性能监测参数名称_2");
+//			cm007.setPmParamUnit("性能监测参数单位_2");
+//			cm007.setPmParamValue("性能监测参数值_2");
+//			cm007.setPmTime(sdf.format(new Date()));
+//			list.add(cm007);
+//		}
+		return cm007;
 	}
 	
 	public static List<CM007> getCm010s(){
@@ -283,19 +316,23 @@ public class GetData {
 		List<CM007> list = new ArrayList<>();
 		{
 			CM007 cm007 = new CM007();
+			cm007.setPeCode("性能编号_1");
 			cm007.setPmLocation("性能监测位置_1");
 			cm007.setPmParamName("性能监测参数名称_1");
 			cm007.setPmParamUnit("性能监测参数单位_1");
-			cm007.setPmParamValue("性能监测参数值_1");
+			cm007.setPmParamValue("11");
+			cm007.setPmPeriod("性能检测周期_1");
 			cm007.setPmTime(sdf.format(new Date()));
 			list.add(cm007);
 		}
 		{
 			CM007 cm007 = new CM007();
+			cm007.setPeCode("性能编号_2");
 			cm007.setPmLocation("性能监测位置_2");
 			cm007.setPmParamName("性能监测参数名称_2");
 			cm007.setPmParamUnit("性能监测参数单位_2");
-			cm007.setPmParamValue("性能监测参数值_2");
+			cm007.setPmParamValue("11");
+			cm007.setPmPeriod("性能检测周期_1");
 			cm007.setPmTime(sdf.format(new Date()));
 			list.add(cm007);
 		}

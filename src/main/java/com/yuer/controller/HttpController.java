@@ -66,7 +66,7 @@ public class HttpController {
 		map.put("SUCCESS", true);
 		map.put("ERRORCODE", "");
 		map.put("result", list);
-		
+		System.out.println(YuerJsonUtils.objToJson(map));
 		return YuerJsonUtils.objToJson(map);
 	}
 	
@@ -114,7 +114,7 @@ public class HttpController {
 	@RequestMapping(value = "/cfnm001",method=RequestMethod.POST,produces = YuerUtils.APPLICATION_JSON)
 	public String cfnm001(HttpServletRequest request,
 			String username,String password,
-			@RequestParam("NMID")String nmId){
+			@RequestParam("systemCode")String nmId){
 		Map<String, String> user = GetData.getUser();
 		if(!user.get("username").equals(username)){
 			return YuerJsonUtils.objToJson(new DCIM(false,"用户名错误"));
@@ -126,11 +126,13 @@ public class HttpController {
 		System.out.println("厂家网管标识:" + nmId);
 		
 		CFNM001 cfnm001 = GetData.getCfnm001();
-		Map<String, Object> map = new HashMap<>();
-		map.put("SUCCESS", true);
-		map.put("ERRORCODE", "");
-		map.put("result", cfnm001);
-		return YuerJsonUtils.objToJson(map);
+		cfnm001.setSuccess(true);
+		cfnm001.setErrorcode("");
+//		Map<String, Object> map = new HashMap<>();
+//		map.put("SUCCESS", true);
+//		map.put("ERRORCODE", "");
+//		map.put("result", cfnm001);
+		return YuerJsonUtils.objToJson(cfnm001);
 	}
 	
 	/**
@@ -269,12 +271,14 @@ public class HttpController {
 		System.out.println("设备标识:" + deId);
 		System.out.println("性能监测点类型:" + pmType);
 		
-		List<CM007> list = GetData.getCm007s();
-		Map<String, Object> map = new HashMap<>();
-		map.put("SUCCESS", true);
-		map.put("ERRORCODE", "");
-		map.put("result", list);
-		return YuerJsonUtils.objToJson(map);
+		CM007 cm007 = GetData.getCm007s();
+		cm007.setSuccess(true);
+		cm007.setErrorcode("");
+//		Map<String, Object> map = new HashMap<>();
+//		map.put("SUCCESS", true);
+//		map.put("ERRORCODE", "");
+//		map.put("result", list);
+		return YuerJsonUtils.objToJson(cm007);
 	}
 	
 	/**
@@ -335,12 +339,14 @@ public class HttpController {
 		System.out.println("监测点标识:" + suId);
 		System.out.println("性能监测点类型:" + pmType);
 		
-		List<CM007> list = GetData.getCm009s();
-		Map<String, Object> map = new HashMap<>();
-		map.put("SUCCESS", true);
-		map.put("ERRORCODE", "");
-		map.put("result", list);
-		return YuerJsonUtils.objToJson(map);
+		CM007 cm007 = GetData.getCm009s();
+		cm007.setSuccess(true);
+		cm007.setErrorcode("");
+//		Map<String, Object> map = new HashMap<>();
+//		map.put("SUCCESS", true);
+//		map.put("ERRORCODE", "");
+//		map.put("result", list);
+		return YuerJsonUtils.objToJson(cm007);
 	}
 	
 	/**

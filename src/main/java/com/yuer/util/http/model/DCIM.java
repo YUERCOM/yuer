@@ -4,9 +4,11 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 public class DCIM {
 	
-	@JsonProperty("SUCCESS")
+//	@JsonProperty("SUCCESS")
+	@JsonProperty("success")
 	private boolean success = true;
-	@JsonProperty("ERRORCODE")
+//	@JsonProperty("ERRORCODE")
+	@JsonProperty("errorcode")
 	private String errorcode = "";
 	
 	public DCIM(){

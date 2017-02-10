@@ -5,7 +5,7 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 @JsonSerialize(include=Inclusion.NON_NULL)
-public class CFNM001{
+public class CFNM001 extends DCIM{
 	@JsonProperty("NM_NAME")
 	private String nmName;				//网管名称
 	@JsonProperty("NM_TYPE")
