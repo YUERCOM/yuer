@@ -24,7 +24,7 @@
 <script type="text/javascript" src="<%=request.getContextPath() %>/static/js/chart/g.dot.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/static/js/dwz.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/static/js/dwz.regional.zh.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/index.js?v=1.0"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/home.js?v=1.0"></script>
 </head>
 <body>
 <div id="layout">
@@ -78,7 +78,7 @@
 					</div>
 					<div class="accordionContent">
 						<ul class="tree treeFolder">
-							<li><a href="tabsPage.html" target="navTab">主框架面板</a>
+							<li><a>主框架面板</a>
 								<ul>
 									<li><a href="main.html" target="navTab" rel="main">我的主页</a></li>
 									<li><a href="demo/row-col.html" target="navTab" rel="row-col">栅格系统(Bootstrap)</a></li>

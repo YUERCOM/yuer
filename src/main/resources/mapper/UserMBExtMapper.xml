@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuer.mapper.UserMBMapper">
+  <select id="selectUserByLoginName" resultMap="">
+  	select 
+		yu.id as id,
+		yu.login_user as loginUser,
+		yu.show_name as showName,
+		yu.password as password 
+	from yuer_user yu 
+	where 1 = 1 
+	and yu.login_user = #{loginUser}
+  </select>
+</mapper>
