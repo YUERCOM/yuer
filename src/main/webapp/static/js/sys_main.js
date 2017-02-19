@@ -1,1 +1,2 @@
-var dwz_frag_xml="http://localhost:8071/manager/static/js/dwz.frag.xml";
+var host = window.document.location.href;
+var dwz_frag_xml = host + "static/js/dwz.frag.xml";
