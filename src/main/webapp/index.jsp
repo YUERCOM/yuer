@@ -6,11 +6,11 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/static/css/index.css"/>
 <script type="text/javascript" src="<%=request.getContextPath() %>/static/js/sys_main.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/static/js/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/login_index.js?v=1.4"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/login_index.js?v=1.7"></script>
 </head>
 	<body>
 		<form id="loginForm">
-			<div style="border:1px solid #A9C3DD; width:300px;height:170px;margin:100 auto;border-radius:10px;">
+			<div style="border:1px solid #A9C3DD; width:300px;height:170px;margin:0 auto;margin-top:150px;border-radius:10px;">
 				<table style="width:100%;">
 					<tr>
 						<td colspan="2" align="center">
@@ -18,11 +18,11 @@
 						</td>
 					</tr>
 					<tr>
-						<td align="right" width=100px><p style="margin-top:10px;margin-bottom:10px;font-size:14px;">登录名：</p></td>
+						<td align="right" width=65px><p style="margin-top:10px;margin-bottom:10px;font-size:14px;">账号：</p></td>
 						<td><input id="loginName" name="loginName" type="text" style="width:200px;height:30px;border-radius:5px;margin-right:5px;border:1px solid #A9C3DD;outline:none;padding-left:5px;padding-right:5px;"/></td>
 					</tr>
 					<tr>
-						<td align="right"><p style="margin-top:10px;margin-bottom:10px;font-size:14px;">登录密码：</p></td>
+						<td align="right"><p style="margin-top:10px;margin-bottom:10px;font-size:14px;">密码：</p></td>
 						<td><input id="password" name="password" type="password" style="width:200px;height:30px;border-radius:5px;border:1px solid #A9C3DD;outline:none;padding-left:5px;padding-right:5px;"></td>
 					</tr>
 					<tr>
@@ -33,5 +33,8 @@
 				</table>
 			</div>
 		</form>
+		<div id="errorDiv" style="width:500px;height:30px;margin:0 auto;text-align:center;line-height:30px;color:red;font-size:12px;">
+			
+		</div>
 	</body>
 </html>
