@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.github.pagehelper.PageInfo;
 import com.yuer.model.Test;
 import com.yuer.service.TestService;
+import com.yuer.spring.aspect.authuser.AuthUser;
 import com.yuer.util.MD5;
 import com.yuer.util.YResult;
 import com.yuer.util.YuerCoreUtils;
@@ -24,13 +25,15 @@ public class TestController {
 	@Autowired
 	private TestService testService;
 	
+	@AuthUser
 	@RequestMapping(value="/abc",method=RequestMethod.GET)
 	public @ResponseBody String abc(){
-		Test test = testService.abc();
-		System.out.println(test.getName());
+//		Test test = testService.abc();
+//		System.out.println(test.getName());
 		YuerCoreUtils.getProperty("email.linlei");
 		return YuerCoreUtils.getProperty("email.linlei");
 	}
+	
 	
 	@RequestMapping(value="/testlist",method=RequestMethod.GET,produces = YuerUtils.APPLICATION_JSON)
 	public @ResponseBody String testlist(){

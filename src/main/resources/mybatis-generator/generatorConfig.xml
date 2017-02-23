@@ -30,27 +30,30 @@
 			type="XMLMAPPER">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
-<!-- 
-		<table tableName="yuer_user" domainObjectName="UserMB"
+
+		<!-- <table tableName="yuer_user" domainObjectName="UserMB"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false">
-		</table>
-		<table tableName="yuer_role" domainObjectName="RoleMB"
+		</table> -->
+		
+		<!-- <table tableName="yuer_role" domainObjectName="RoleMB"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false">
-		</table>
-		<table tableName="yuer_menu" domainObjectName="MenuMB"
+		</table> -->
+		
+		<!-- <table tableName="yuer_menu" domainObjectName="MenuMB"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false">
-		</table>
+		</table> -->
+		
 		<table tableName="yuer_dept" domainObjectName="DeptMB"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false">
 		</table>
- -->
+ 
 	</context>
 </generatorConfiguration>

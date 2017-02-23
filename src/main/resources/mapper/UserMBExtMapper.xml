@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yuer.mapper.UserMBMapper">
-  <select id="selectUserByLoginName" resultMap="">
-  	select 
+  <select id="selectUserByLoginName" resultType="com.yuer.model.UserMB">
+	select 
 		yu.id as id,
-		yu.login_user as loginUser,
+		yu.login_name as loginName,
 		yu.show_name as showName,
-		yu.password as password 
+		yu.password as password,
+		yu.role_id as roleId,
+		yu.dept_id as deptId  
 	from yuer_user yu 
 	where 1 = 1 
-	and yu.login_user = #{loginUser}
+		and yu.login_name = #{loginName}
   </select>
+  
+  <select id="selectUserInfoById" resultType="com.yuer.model.util.UserUtil">
+  	select 
+		yueru.id as id,
+		yueru.login_name as loginName,
+		yueru.show_name as showName,
+		yueru.sex as sex,
+		yueru.brithday as brithday,
+		yueru.job as job,
+		yuerd.id as deptId,
+		yuerd.name as deptStr,
+		yuerr.id as roleId,
+		yuerr.code as roleCode,
+		yuerr.name as roleStr 
+	from yuer_user yueru,yuer_dept yuerd,yuer_role yuerr 
+	where 1 = 1 
+		and yueru.dept_id = yuerd.id 
+		and yueru.role_id = yuerr.id
+		and yueru.id = #{userId}
+  </select>
+  
+  <update id="updateUserLastLoginTime">
+  	update yuer_user set last_login_time = now() where id = #{userId}
+  </update>
+  
 </mapper>

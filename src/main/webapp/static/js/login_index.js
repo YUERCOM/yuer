@@ -7,7 +7,7 @@ $(document).ready(function(){
             data: $("#loginForm").serializeArray(),
             success: function (data) {
                 if(data.status == "success"){
-                	$("#errorDiv").html("密码错误111");
+                	window.location.href = host + "home/";
                 }else{
                 	$("#errorDiv").html(data.result);
                 }

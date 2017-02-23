@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/static/css/index.css"/>
 <script type="text/javascript" src="<%=request.getContextPath() %>/static/js/sys_main.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/static/js/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/login_index.js?v=1.7"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/login_index.js?v=0.01"></script>
 </head>
 	<body>
 		<form id="loginForm">

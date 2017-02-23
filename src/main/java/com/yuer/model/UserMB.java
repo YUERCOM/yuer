@@ -21,6 +21,10 @@ public class UserMB {
 
     private Date lastLoginTime;
 
+    private Integer roleId;
+
+    private Integer deptId;
+
     public Integer getId() {
         return id;
     }
@@ -91,5 +95,21 @@ public class UserMB {
 
     public void setLastLoginTime(Date lastLoginTime) {
         this.lastLoginTime = lastLoginTime;
+    }
+
+    public Integer getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
+    }
+
+    public Integer getDeptId() {
+        return deptId;
+    }
+
+    public void setDeptId(Integer deptId) {
+        this.deptId = deptId;
     }
 }

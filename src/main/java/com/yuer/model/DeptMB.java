@@ -7,7 +7,7 @@ public class DeptMB {
 
     private String name;
 
-    private String desc;
+    private String deptDesc;
 
     private Date createTime;
 
@@ -27,12 +27,12 @@ public class DeptMB {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDeptDesc() {
+        return deptDesc;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc == null ? null : desc.trim();
+    public void setDeptDesc(String deptDesc) {
+        this.deptDesc = deptDesc == null ? null : deptDesc.trim();
     }
 
     public Date getCreateTime() {

@@ -7,6 +7,10 @@ public class YResult {
 	private String status = "success";				//返回状态   可以在YuerType中取值
 	private Object result = new HashMap<>();		//返回的数据
 	
+	public YResult(){
+		
+	}
+	
 	public YResult(Object result){
 		this.result = result;
 	}
