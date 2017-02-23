@@ -13,13 +13,16 @@
 	<table class="table" width="100%" layoutH="138">
 		<thead>
 			<tr>
-				<th width="10%" align="center">角色ID</th>
-				<th width="15%" align="center">角色名称</th>
-				<th width="15%" align="center">角色编码</th>
-				<th width="30%">角色描述</th>
-				<th width="10%" align="center">创建时间</th>
-				<th width="10%" align="center">修改时间</th>
-				<th width="10%" align="center">操作</th>
+				<th width="10%" align="center">用户ID</th>
+				<th width="10%" align="center">登录名</th>
+				<th width="10%" align="center">显示名</th>
+				<th width="5%" align="center">性别</th>
+				<th width="10%" align="center">出生日期</th>
+				<th width="10%" align="center">职务</th>
+				<th width="10%" align="center">部门</th>
+				<th width="10%" align="center">角色</th>
+				<th width="10%" align="center">最后登录时间</th>
+				<th width="15%" align="center">操作</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -28,6 +31,9 @@
 				<td>A120113196309052434</td>
 				<td title="天津市华建装饰工程有限公司">天津市华建装饰工程有限公司</td>
 				<td>联社营业部</td>
+				<td>2009-05-21</td>
+				<td>2009-05-21</td>
+				<td>2009-05-21</td>
 				<td>2009-05-21</td>
 				<td>2009-05-21</td>
 				<td>

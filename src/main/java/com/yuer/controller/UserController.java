@@ -7,12 +7,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.yuer.util.YuerUtils;
 
 @Controller
-@RequestMapping(value = "/role")
-public class RoleController {
-
-	@RequestMapping(value = "/roleList",method=RequestMethod.GET,produces = YuerUtils.TEXT_HTML)
-	public String roleList(){
+@RequestMapping(value = "/user")
+public class UserController {
+	
+	@RequestMapping(value = "/userList",method=RequestMethod.GET,produces = YuerUtils.TEXT_HTML)
+	public String userList(){
 		System.out.println("111111111");
-		return "system/yuer_role";
+		return "user/yuer_user";
 	}
+	
 }

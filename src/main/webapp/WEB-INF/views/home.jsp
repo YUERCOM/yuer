@@ -55,7 +55,7 @@
 					<div class="accordionContent">
 						<ul class="tree treeFolder">
 							<c:forEach items="${menu.childMenus }" var="childMenu">
-								<li><a href="<%=request.getContextPath() %>${childMenu.url}">${childMenu.name }</a></li>
+								<li><a href="<%=request.getContextPath() %>${childMenu.url}" target="navTab" rel="${childMenu.code }">${childMenu.name }</a></li>
 							</c:forEach>
 						</ul>
 					</div>
