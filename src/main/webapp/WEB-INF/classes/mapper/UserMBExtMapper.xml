@@ -38,4 +38,43 @@
   	update yuer_user set last_login_time = now() where id = #{userId}
   </update>
   
+  <select id="selectUserInfo" resultType="com.yuer.model.util.UserUtil" parameterType="java.util.Map">
+  	select 
+		yueru.id as id,
+		yueru.login_name as loginName,
+		yueru.show_name as showName,
+		yueru.sex as sex,
+		yueru.brithday as brithday,
+		yueru.job as job,
+		yuerr.create_time as createTime,
+		yueru.last_login_time as lastLoginTime,
+		yuerd.id as deptId,
+		yuerd.name as deptStr,
+		yuerr.id as roleId,
+		yuerr.code as roleCode,
+		yuerr.name as roleStr 
+	from yuer_user yueru,yuer_dept yuerd,yuer_role yuerr 
+	where 1 = 1 
+		and yueru.dept_id = yuerd.id 
+		and yueru.role_id = yuerr.id 
+		<if test="deptIds == null or deptIds == ''">
+			and yueru.id = #{id} 
+		</if>
+		<if test="deptIds != null and deptIds != ''">
+			and yueru.dept_id in (${deptIds}) 
+		</if>
+		<if test="loginName != null and loginName != ''">
+			and yueru.login_name like '%${loginName}%' 
+		</if>
+		<if test="showName != null and showName != ''">
+			and yueru.show_name like '%${showName}%' 
+		</if>
+		<if test="deptId != null and deptId != ''">
+			and yueru.dept_id = #{deptId}
+		</if>
+		<if test="sex != null and sex != ''">
+			and yueru.sex = #{sex}
+		</if>
+  </select>
+  
 </mapper>
