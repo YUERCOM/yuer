@@ -19,11 +19,11 @@
 					</tr>
 					<tr>
 						<td align="right" width=65px><p style="margin-top:10px;margin-bottom:10px;font-size:14px;">账号：</p></td>
-						<td><input id="loginName" name="loginName" type="text" style="width:200px;height:30px;border-radius:5px;margin-right:5px;border:1px solid #A9C3DD;outline:none;padding-left:5px;padding-right:5px;"/></td>
+						<td><input id="loginName" name="loginName" type="text" value="admin" style="width:200px;height:30px;border-radius:5px;margin-right:5px;border:1px solid #A9C3DD;outline:none;padding-left:5px;padding-right:5px;"/></td>
 					</tr>
 					<tr>
 						<td align="right"><p style="margin-top:10px;margin-bottom:10px;font-size:14px;">密码：</p></td>
-						<td><input id="password" name="password" type="password" style="width:200px;height:30px;border-radius:5px;border:1px solid #A9C3DD;outline:none;padding-left:5px;padding-right:5px;"></td>
+						<td><input id="password" name="password" type="password" value="111111" style="width:200px;height:30px;border-radius:5px;border:1px solid #A9C3DD;outline:none;padding-left:5px;padding-right:5px;"></td>
 					</tr>
 					<tr>
 						<td colspan="2" align="center">

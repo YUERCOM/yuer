@@ -1,5 +1,9 @@
 package com.yuer.mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.yuer.model.DeptMB;
 
 public interface DeptMBMapper {
@@ -14,4 +18,6 @@ public interface DeptMBMapper {
     int updateByPrimaryKeySelective(DeptMB record);
 
     int updateByPrimaryKey(DeptMB record);
+    
+    List<DeptMB> selectDeptInfoByIds(@Param("deptIds")String deptIds);
 }

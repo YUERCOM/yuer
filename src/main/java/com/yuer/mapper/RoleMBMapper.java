@@ -1,5 +1,9 @@
 package com.yuer.mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.yuer.model.RoleMB;
 
 public interface RoleMBMapper {
@@ -14,4 +18,6 @@ public interface RoleMBMapper {
     int updateByPrimaryKeySelective(RoleMB record);
 
     int updateByPrimaryKey(RoleMB record);
+    
+    List<Integer> selectDeptIdByRoleId(@Param("roleId")Integer roleId);
 }

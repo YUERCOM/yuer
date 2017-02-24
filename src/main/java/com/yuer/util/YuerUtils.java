@@ -12,6 +12,7 @@ public class YuerUtils {
     //Session  key
     public static final String SESSION_USER = "YUER_USER";//用户信息
     public static final String SESSION_MENUS = "YUER_MENUS";//菜单信息
+    public static final String SESSION_DEPTIDS = "YUER_DEPTIDS";//对应角色所管理的部门ID集合
     
     //aop注解执行优先级（值越小优先级越高）Annotation
   	public static final int ANNOTATION_ORDER_0 = 0;

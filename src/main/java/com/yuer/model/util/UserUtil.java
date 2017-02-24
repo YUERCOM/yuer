@@ -7,8 +7,9 @@ public class UserUtil {
 	private String loginName;
 	private String showName;
 	private String sex;
-	private Date brithday;
+	private String brithday;
 	private String job;
+	private String lastLoginTime;
 	private Integer roleId;
 	private String roleCode;
 	private String roleStr;
@@ -38,10 +39,10 @@ public class UserUtil {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	public Date getBrithday() {
+	public String getBrithday() {
 		return brithday;
 	}
-	public void setBrithday(Date brithday) {
+	public void setBrithday(String brithday) {
 		this.brithday = brithday;
 	}
 	public String getJob() {
@@ -79,5 +80,11 @@ public class UserUtil {
 	}
 	public void setDeptId(Integer deptId) {
 		this.deptId = deptId;
+	}
+	public String getLastLoginTime() {
+		return lastLoginTime;
+	}
+	public void setLastLoginTime(String lastLoginTime) {
+		this.lastLoginTime = lastLoginTime;
 	}
 }

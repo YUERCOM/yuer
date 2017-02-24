@@ -1,8 +1,12 @@
 package com.yuer.mapper;
 
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 import com.yuer.model.UserMB;
+import com.yuer.model.param.UserParam;
 import com.yuer.model.util.UserUtil;
 
 public interface UserMBMapper {
@@ -23,4 +27,6 @@ public interface UserMBMapper {
     UserUtil selectUserInfoById(@Param("userId")Integer userId);
     
     void updateUserLastLoginTime(@Param("userId")Integer userId);
+    
+    List<UserUtil> selectUserInfo(UserParam userParam);
 }
