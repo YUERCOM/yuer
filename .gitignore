@@ -5,7 +5,8 @@
 *.class
 .MF
 /META-INF/
-
+/src/main/WEB-INF/classes/
+/src/main/WEB-INF/lib/
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
