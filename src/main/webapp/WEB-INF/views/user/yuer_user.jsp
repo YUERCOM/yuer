@@ -43,7 +43,7 @@
 	<div class="panelBar">
 		<ul class="toolBar">
 			<!-- <li><span>添加无权限</span></li> -->
-			<li><a class="add" href="<%=request.getContextPath() %>/user/gotoUserAdd" target="dialog" rel="dlg_page2" width="645" height="370" fresh="true"><span>添加</span></a></li>
+			<li><a class="add" href="<%=request.getContextPath() %>/user/gotoUserAdd" target="dialog" rel="dlg_page2" width="645" height="370" fresh="true" mask="true"><span>添加</span></a></li>
 		</ul>
 	</div>
 	<table class="table" width="100%" layoutH="138">

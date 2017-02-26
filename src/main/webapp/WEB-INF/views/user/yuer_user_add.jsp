@@ -1,3 +1,53 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-啊适当的方式
+<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/user/yuer_user_add.js?v=1.000"></script>
+<div class="pageContent">
+	<form method="post" action="" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone);">
+		<div class="pageFormContent" layoutH="56">
+			<p>
+				<label>登录名：</label>
+				<input name="sn" class="required" type="text" size="20" value=""/>
+			</p>
+			<p>
+				<label>显示名：</label>
+				<input name="name" class="required" type="text" size="20" value=""/>
+			</p>
+			<p>
+				<label>性别：</label>
+				<select id="sex" name="sex" style="height:22px;width:150px;">
+					<option value="">性别</option>
+					<option value="1">男</option>
+					<option value="0">女</option>
+				</select>
+			</p>
+			<p>
+				<label>出生日期：</label>
+				<input type="text" name="startDate" class="date" size="20" />
+			</p>
+			<p>
+				<label>职务：</label>
+				<input name="name" type="text" size="20" value=""/>
+			</p>
+			<p>
+				<label>部门：</label>
+				<select id="deptId" name="deptId" style="height:22px;width:150px;"></select>
+			</p>
+			<p>
+				<label>角色：</label>
+				<select id="sex" name="sex" style="height:22px;width:150px;">
+					<option value="">请选择角色</option>
+					<option value="1">男</option>
+					<option value="0">女</option>
+				</select>
+			</p>
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+				<li>
+					<div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+				</li>
+			</ul>
+		</div>
+	</form>
+</div>
