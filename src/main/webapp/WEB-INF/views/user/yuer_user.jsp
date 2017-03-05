@@ -43,7 +43,7 @@
 	<div class="panelBar">
 		<ul class="toolBar">
 			<!-- <li><span>添加无权限</span></li> -->
-			<li><a class="add" href="<%=request.getContextPath() %>/user/gotoUserAdd" target="dialog" rel="dlg_page2" width="645" height="370" fresh="true" mask="true"><span>添加</span></a></li>
+			<li><a class="add" href="<%=request.getContextPath() %>/user/gotoUserAdd" target="dialog" rel="dlg_page2" width="400" height="370" fresh="true" mask="true"><span>添加</span></a></li>
 		</ul>
 	</div>
 	<table class="table" width="100%" layoutH="138">
@@ -85,10 +85,21 @@
 		<div class="pages">
 			<span>显示</span>
 			<select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
-				<option value="20">20</option>
-				<option value="50">50</option>
-				<option value="100">100</option>
-				<option value="200">200</option>
+				<c:if test="${pageInfo.pageSize == 20 }">
+					<option value="20" selected="selected">20</option>
+					<option value="50">50</option>
+					<option value="100">100</option>
+				</c:if>
+				<c:if test="${pageInfo.pageSize == 50 }">
+					<option value="20">20</option>
+					<option value="50" selected="selected">50</option>
+					<option value="100">100</option>
+				</c:if>
+				<c:if test="${pageInfo.pageSize == 100 }">
+					<option value="20">20</option>
+					<option value="50">50</option>
+					<option value="100" selected="selected">100</option>
+				</c:if>
 			</select>
 			<span>条，共 ${pageInfo.total } 条</span>
 		</div>

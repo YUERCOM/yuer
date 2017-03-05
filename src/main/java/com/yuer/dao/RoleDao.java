@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.yuer.mapper.RoleMBMapper;
+import com.yuer.model.RoleMB;
 
 @Repository
 public class RoleDao {
@@ -14,5 +15,9 @@ public class RoleDao {
 	
 	public List<Integer> selectDeptIdByRoleId(Integer roleId){
 		return roleMBMapper.selectDeptIdByRoleId(roleId);
+	}
+	
+	public List<RoleMB> selectRoleInfos(){
+		return roleMBMapper.selectRoleInfos();
 	}
 }

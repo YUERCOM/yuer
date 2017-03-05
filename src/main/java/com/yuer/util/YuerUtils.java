@@ -36,6 +36,9 @@ public class YuerUtils {
 	public static final String USER_EMPTY_STR = "用户不存在，请修改后登录";
 	public static final String PWD_ERROR_CODE = "10001";//密码不匹配
 	public static final String PWD_ERROR_STR = "密码不匹配，请修改后登录";
+	
+	
+	
     
 	
 }

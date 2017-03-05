@@ -20,4 +20,6 @@ public interface RoleMBMapper {
     int updateByPrimaryKey(RoleMB record);
     
     List<Integer> selectDeptIdByRoleId(@Param("roleId")Integer roleId);
+    
+    List<RoleMB> selectRoleInfos();
 }

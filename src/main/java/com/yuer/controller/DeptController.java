@@ -26,11 +26,7 @@ public class DeptController {
 	
 	@RequestMapping(value="/getDeptList",method=RequestMethod.GET,produces = YuerUtils.APPLICATION_JSON)
 	public @ResponseBody String getDeptList(HttpServletRequest request){
-		String deptIds = (String) request.getSession().getAttribute(YuerUtils.SESSION_DEPTIDS);
-		List<DeptMB> list = null;
-		if(deptIds != null){
-			list = deptService.selectDeptInfoByIds(deptIds);
-		}
+		List<DeptMB> list = deptService.selectDeptInfos();
 		return YuerJsonUtils.objToJson(new YResult(list));
 	}
 	

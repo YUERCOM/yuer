@@ -1,9 +1,11 @@
 package com.yuer.model.param;
 
-public class UserParam {
-	
-	private Integer pageNum = 1;
-	private Integer pageSize = 20;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import com.yuer.model.UserMB;
+
+public class UserParam extends ParamModel {
 	private Integer id;
 	private String deptIds;
 	private String loginName;
@@ -11,6 +13,9 @@ public class UserParam {
 	private Integer sex;
 	private Integer deptId;
 	private String createTime;
+	private String brithday;
+	private String job;
+	private Integer roleId;
 	public Integer getId() {
 		return id;
 	}
@@ -28,18 +33,6 @@ public class UserParam {
 	}
 	public void setSex(Integer sex) {
 		this.sex = sex;
-	}
-	public Integer getPageNum() {
-		return pageNum;
-	}
-	public void setPageNum(Integer pageNum) {
-		this.pageNum = pageNum;
-	}
-	public Integer getPageSize() {
-		return pageSize;
-	}
-	public void setPageSize(Integer pageSize) {
-		this.pageSize = pageSize;
 	}
 	public String getDeptIds() {
 		return deptIds;
@@ -65,6 +58,48 @@ public class UserParam {
 	public void setCreateTime(String createTime) {
 		this.createTime = createTime;
 	}
+	public String getBrithday() {
+		return brithday;
+	}
+	public void setBrithday(String brithday) {
+		this.brithday = brithday;
+	}
+	public String getJob() {
+		return job;
+	}
+	public void setJob(String job) {
+		this.job = job;
+	}
+	public Integer getRoleId() {
+		return roleId;
+	}
+	public void setRoleId(Integer roleId) {
+		this.roleId = roleId;
+	}
+	
+	
+	public static UserMB userParamToUserMB(UserParam param){
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		UserMB userMB = new UserMB();
+		try {
+			userMB.setLoginName(param.getLoginName());
+			userMB.setShowName(param.getShowName());
+			userMB.setSex(param.getSex());
+			userMB.setBrithday(sdf.parse(param.getBrithday()));
+			userMB.setJob(param.getJob());
+			userMB.setDeptId(param.getDeptId());
+			userMB.setRoleId(param.getRoleId());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return userMB;
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 }

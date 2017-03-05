@@ -13,8 +13,8 @@ public class DeptService {
 	@Autowired
 	private DeptDao deptDao;
 	
-	public List<DeptMB> selectDeptInfoByIds(String deptIds){
-		List<DeptMB> list = deptDao.selectDeptInfoByIds(deptIds);
+	public List<DeptMB> selectDeptInfos(){
+		List<DeptMB> list = deptDao.selectDeptInfos();
 		return list;
 	}
 	

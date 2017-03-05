@@ -1,7 +1,6 @@
 package com.yuer.dao;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -9,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.yuer.mapper.UserMBMapper;
-import com.yuer.model.Test;
 import com.yuer.model.UserMB;
 import com.yuer.model.param.UserParam;
 import com.yuer.model.util.UserUtil;
@@ -33,9 +31,13 @@ public class UserDao {
 	}
 	
 	public PageInfo<UserUtil> selectUserInfo(UserParam userParam){
-		PageHelper.startPage(userParam.getPageNum(), userParam.getPageSize());
+		PageHelper.startPage(userParam.getPageNum(), userParam.getNumPerPage());
 		List<UserUtil> list = userMBMapper.selectUserInfo(userParam);
 		return new PageInfo<UserUtil>(list);
+	}
+	
+	public void insertSelective(UserMB userMB){
+		userMBMapper.insertSelective(userMB);
 	}
 
 }

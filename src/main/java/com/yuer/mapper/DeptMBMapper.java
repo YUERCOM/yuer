@@ -19,5 +19,5 @@ public interface DeptMBMapper {
 
     int updateByPrimaryKey(DeptMB record);
     
-    List<DeptMB> selectDeptInfoByIds(@Param("deptIds")String deptIds);
+    List<DeptMB> selectDeptInfos();
 }

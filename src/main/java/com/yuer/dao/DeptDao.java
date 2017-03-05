@@ -13,7 +13,7 @@ public class DeptDao {
 	@Autowired
 	private DeptMBMapper deptMBMapper;
 	
-	public List<DeptMB> selectDeptInfoByIds(String deptIds){
-		return deptMBMapper.selectDeptInfoByIds(deptIds);
+	public List<DeptMB> selectDeptInfos(){
+		return deptMBMapper.selectDeptInfos();
 	}
 }
