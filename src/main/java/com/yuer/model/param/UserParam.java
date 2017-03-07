@@ -1,11 +1,17 @@
 package com.yuer.model.param;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.yuer.model.UserMB;
+import com.yuer.util.YuerJsonUtils;
 
 public class UserParam extends ParamModel {
+	
+	private static final Logger logger = LoggerFactory.getLogger(YuerJsonUtils.class);
+	
 	private Integer id;
 	private String deptIds;
 	private String loginName;
@@ -85,14 +91,38 @@ public class UserParam extends ParamModel {
 			userMB.setLoginName(param.getLoginName());
 			userMB.setShowName(param.getShowName());
 			userMB.setSex(param.getSex());
-			userMB.setBrithday(sdf.parse(param.getBrithday()));
+			if(param.getBrithday() != null){
+				userMB.setBrithday(sdf.parse(param.getBrithday()));
+			}
 			userMB.setJob(param.getJob());
 			userMB.setDeptId(param.getDeptId());
 			userMB.setRoleId(param.getRoleId());
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
+			logger.error("UserParam.userParamToUserMB  UserParam转换为UserMB出错");
 		}
 		return userMB;
+	}
+	
+	public static UserParam userMBToUserParam(UserMB mb){
+		UserParam param = new UserParam();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			param.setId(mb.getId());
+			param.setLoginName(mb.getLoginName());
+			param.setShowName(mb.getShowName());
+			param.setSex(mb.getSex());
+			if(mb.getBrithday() != null){
+				param.setBrithday(sdf.format(mb.getBrithday()));
+			}
+			param.setJob(mb.getJob());
+			param.setDeptId(mb.getDeptId());
+			param.setRoleId(mb.getRoleId());
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error("UserParam.userMBToUserParam  UserMB转换为UserParam出错");
+		}
+		return param;
 	}
 	
 	

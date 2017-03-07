@@ -39,5 +39,9 @@ public class UserDao {
 	public void insertSelective(UserMB userMB){
 		userMBMapper.insertSelective(userMB);
 	}
+	
+	public UserMB selectByPrimaryKey(Integer userId){
+		return userMBMapper.selectByPrimaryKey(userId);
+	}
 
 }

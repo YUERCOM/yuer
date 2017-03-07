@@ -56,6 +56,22 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/gotoUserAdd",produces = YuerUtils.TEXT_HTML)
 	public String gotoUserAdd(HttpServletRequest request,Model model){
+//		UserParam param = new UserParam();
+//		model.addAttribute("param", param);
+		return "user/yuer_user_add";
+	}
+	
+	/**
+	 * 跳转修改用户页面
+	 * @param request
+	 * @param model
+	 * @param userId
+	 * @return
+	 */
+	@RequestMapping(value = "/gotoUserUpdate",produces = YuerUtils.TEXT_HTML)
+	public String gotoUserUpdate(HttpServletRequest request,Model model,Integer userId){
+		UserParam userParam = userService.selectByPrimaryKey(userId);
+		model.addAttribute("userParam", userParam);
 		return "user/yuer_user_add";
 	}
 	

@@ -42,4 +42,18 @@ public class UserService {
 		return 0;
 	}
 	
+	public UserParam selectByPrimaryKey(Integer userId){
+		UserParam param = new UserParam();
+		try {
+			UserMB mb = userDao.selectByPrimaryKey(userId);
+			if(mb != null){
+				param = UserParam.userMBToUserParam(mb);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return param;
+		}
+		return param;
+	}
+	
 }

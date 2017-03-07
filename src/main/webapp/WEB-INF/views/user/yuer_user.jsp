@@ -75,7 +75,7 @@
 					<td>${user.lastLoginTime }</td>
 					<td>
 						<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
-						<a title="编辑" target="navTab" href="demo_page4.html?id=xxx" class="btnEdit">编辑</a>
+						<a title="编辑" class="btnEdit" target="dialog" href="<%=request.getContextPath() %>/user/gotoUserUpdate?userId=${user.id }" rel="dlg_page2" width="400" height="370" fresh="true" mask="true">编辑</a>
 					</td>
 				</tr>
 			</c:forEach>

@@ -2,15 +2,19 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <script type="text/javascript" src="<%=request.getContextPath() %>/static/js/user/yuer_user_add.js?v=1.002"></script>
 <div class="pageContent">
+	<input id="hiddenSex" type="hidden" value="${userParam.sex }">
+	<input id="hiddenDeptId" type="hidden" value="${userParam.deptId }">
+	<input id="hiddenRoleId" type="hidden" value="${userParam.roleId }">
 	<form id="saveUserForm" method="POST"class="pageForm">
+		<input name="id" type="hidden" value="${userParam.id }">
 		<div class="pageFormContent" layoutH="56">
 			<p>
 				<label>登录名：</label>
-				<input name="loginName" class="required" type="text" size="20" value=""/>
+				<input name="loginName" class="required" type="text" size="20" value="${userParam.loginName }"/>
 			</p>
 			<p>
 				<label>显示名：</label>
-				<input name="showName" class="required" type="text" size="20" value=""/>
+				<input name="showName" class="required" type="text" size="20" value="${userParam.showName }"/>
 			</p>
 			<p>
 				<label>性别：</label>
@@ -22,11 +26,11 @@
 			</p>
 			<p>
 				<label>出生日期：</label>
-				<input type="text" name="brithday" class="date" size="20" />
+				<input type="text" name="brithday" class="date" size="20" value="${userParam.brithday }" />
 			</p>
 			<p>
 				<label>职务：</label>
-				<input name="job" type="text" size="20" value=""/>
+				<input name="job" type="text" size="20" value="${userParam.job }"/>
 			</p>
 			<p>
 				<label>部门：</label>
