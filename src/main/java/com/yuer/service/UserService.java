@@ -1,8 +1,6 @@
 package com.yuer.service;
 
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,8 +12,6 @@ import com.yuer.model.param.UserParam;
 import com.yuer.model.util.UserUtil;
 import com.yuer.util.YResult;
 import com.yuer.util.YuerJsonUtils;
-import com.yuer.util.YuerUtils;
-import com.yuer.util.YuerValueUtils;
 
 @Service
 public class UserService {
@@ -23,6 +19,11 @@ public class UserService {
 	@Autowired
 	private UserDao userDao;
 	
+	/**
+	 * 用户列表
+	 * @param userParam
+	 * @return
+	 */
 	public PageInfo<UserUtil> selectUserInfo(UserParam userParam){
 		PageInfo<UserUtil> pageInfo = userDao.selectUserInfo(userParam);
 		if(pageInfo != null){
@@ -37,6 +38,11 @@ public class UserService {
 		return pageInfo;
 	}
 	
+	/**
+	 * 用户添加及修改
+	 * @param userMB
+	 * @return
+	 */
 	public int insertSelective(UserMB userMB){
 		if(userMB.getId() == null){
 			UserMB mb = userDao.selectUserByLoginName(userMB.getLoginName());
@@ -56,6 +62,11 @@ public class UserService {
 		return 0;
 	}
 	
+	/**
+	 * 获取用户详情
+	 * @param userId
+	 * @return
+	 */
 	public UserParam selectByPrimaryKey(Integer userId){
 		UserParam param = new UserParam();
 		try {
@@ -70,6 +81,11 @@ public class UserService {
 		return param;
 	}
 	
+	/**
+	 * 删除指定用户
+	 * @param userId
+	 * @return
+	 */
 	public String deleteByPrimaryKey(Integer userId){
 		UserMB mb = userDao.selectByPrimaryKey(userId);
 		if(mb == null){

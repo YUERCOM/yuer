@@ -38,7 +38,7 @@ public class UserController {
 		UserUtil userUtil = (UserUtil) request.getSession().getAttribute(YuerUtils.SESSION_USER);
 		String deptIds = (String) request.getSession().getAttribute(YuerUtils.SESSION_DEPTIDS);
 		if(userUtil == null){
-			return "";
+			return "/index";
 		}
 		userParam.setId(userUtil.getId());
 		userParam.setDeptIds(deptIds);
