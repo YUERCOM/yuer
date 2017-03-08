@@ -2,9 +2,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <script type="text/javascript" src="<%=request.getContextPath() %>/static/js/user/yuer_user_add.js?v=1.002"></script>
 <div class="pageContent">
-	<input id="hiddenSex" type="hidden" value="${userParam.sex }">
-	<input id="hiddenDeptId" type="hidden" value="${userParam.deptId }">
-	<input id="hiddenRoleId" type="hidden" value="${userParam.roleId }">
+	<input id="hidden_sex" type="hidden" value="${userParam.sex }">
+	<input id="hidden_deptId" type="hidden" value="${userParam.deptId }">
+	<input id="hidden_roleId" type="hidden" value="${userParam.roleId }">
 	<form id="saveUserForm" method="POST"class="pageForm">
 		<input name="id" type="hidden" value="${userParam.id }">
 		<div class="pageFormContent" layoutH="56">

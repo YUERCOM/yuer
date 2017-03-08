@@ -88,6 +88,7 @@ public class UserParam extends ParamModel {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		UserMB userMB = new UserMB();
 		try {
+			userMB.setId(param.getId());
 			userMB.setLoginName(param.getLoginName());
 			userMB.setShowName(param.getShowName());
 			userMB.setSex(param.getSex());

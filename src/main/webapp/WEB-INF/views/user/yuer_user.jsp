@@ -43,7 +43,7 @@
 	<div class="panelBar">
 		<ul class="toolBar">
 			<!-- <li><span>添加无权限</span></li> -->
-			<li><a class="add" href="<%=request.getContextPath() %>/user/gotoUserAdd" target="dialog" rel="dlg_page2" width="400" height="370" fresh="true" mask="true"><span>添加</span></a></li>
+			<li><a class="add" href="<%=request.getContextPath() %>/user/gotoUserAdd" target="dialog" rel="yuer_user_add" width="400" height="370" fresh="true" mask="true"><span>添加</span></a></li>
 		</ul>
 	</div>
 	<table class="table" width="100%" layoutH="138">
@@ -74,8 +74,8 @@
 					<td>${user.roleStr} </td>
 					<td>${user.lastLoginTime }</td>
 					<td>
-						<a title="删除" target="ajaxTodo" href="demo/common/ajaxDone.html?id=xxx" class="btnDel">删除</a>
-						<a title="编辑" class="btnEdit" target="dialog" href="<%=request.getContextPath() %>/user/gotoUserUpdate?userId=${user.id }" rel="dlg_page2" width="400" height="370" fresh="true" mask="true">编辑</a>
+						<a title="删除" href="javascript:void(0)" onclick="deleteUser(${user.id})" class="btnDel">删除</a>
+						<a title="编辑" class="btnEdit" target="dialog" href="<%=request.getContextPath() %>/user/gotoUserUpdate?userId=${user.id }" rel="yuer_user_update" width="400" height="370" fresh="true" mask="true">编辑</a>
 					</td>
 				</tr>
 			</c:forEach>

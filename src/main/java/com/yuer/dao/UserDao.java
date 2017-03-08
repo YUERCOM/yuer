@@ -43,5 +43,13 @@ public class UserDao {
 	public UserMB selectByPrimaryKey(Integer userId){
 		return userMBMapper.selectByPrimaryKey(userId);
 	}
+	
+	public void updateByPrimaryKeySelective(UserMB userMB){
+		userMBMapper.updateByPrimaryKeySelective(userMB);
+	}
+	
+	public void deleteByPrimaryKey(Integer userId){
+		userMBMapper.deleteByPrimaryKey(userId);
+	}
 
 }

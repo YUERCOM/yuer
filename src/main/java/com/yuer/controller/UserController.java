@@ -56,8 +56,6 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/gotoUserAdd",produces = YuerUtils.TEXT_HTML)
 	public String gotoUserAdd(HttpServletRequest request,Model model){
-//		UserParam param = new UserParam();
-//		model.addAttribute("param", param);
 		return "user/yuer_user_add";
 	}
 	
@@ -75,6 +73,12 @@ public class UserController {
 		return "user/yuer_user_add";
 	}
 	
+	/**
+	 * 添加修改操作
+	 * @param request
+	 * @param param
+	 * @return
+	 */
 	@RequestMapping(value="/saveUser",method=RequestMethod.POST,produces = YuerUtils.APPLICATION_JSON)
 	public @ResponseBody String saveUser(HttpServletRequest request,UserParam param){
 		UserMB userMB = UserParam.userParamToUserMB(param);
@@ -95,6 +99,11 @@ public class UserController {
 		}
 		
 		return YuerJsonUtils.objToJson(new YResult());
+	}
+	
+	@RequestMapping(value="/deleteUser",method=RequestMethod.POST,produces = YuerUtils.APPLICATION_JSON)
+	public @ResponseBody String deleteUser(HttpServletRequest request,Integer id){
+		return userService.deleteByPrimaryKey(id);
 	}
 	
 	

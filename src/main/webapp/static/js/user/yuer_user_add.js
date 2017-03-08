@@ -1,12 +1,18 @@
 $(function(){
+	var hiddenSex = $("#hidden_sex").val();
+	var hiddenDeptId = $("#hidden_deptId").val();
+	var hiddenRoleId = $("#hidden_roleId").val();
+	if(hiddenSex != ""){
+		$("#sex").val(hiddenSex);
+	}
 	//加载部门
-	getDeptFun();
+	getDeptFun(hiddenDeptId);
 	//加载角色
-	getRoleFun();
+	getRoleFun(hiddenRoleId);
 	
 });
 
-function getDeptFun(){
+function getDeptFun(hiddenDeptId){
 	$.ajax({
         type: "GET",
         dataType:"json",
@@ -17,7 +23,11 @@ function getDeptFun(){
             	deptId.empty();
             	var deptOption = "<option value=''>请选择部门</option>";
             	for(var i = 0; i < data.result.length; i++){
-            		deptOption = deptOption + "<option value='" + data.result[i].id + "'>" + data.result[i].name + "</option>";
+            		if(hiddenDeptId == data.result[i].id){
+            			deptOption = deptOption + "<option value='" + data.result[i].id + "' selected='selected'>" + data.result[i].name + "</option>";
+            		}else{
+            			deptOption = deptOption + "<option value='" + data.result[i].id + "'>" + data.result[i].name + "</option>";
+            		}
             	}
             	deptId.append(deptOption);
             }else{
@@ -30,7 +40,7 @@ function getDeptFun(){
 	});
 }
 
-function getRoleFun(){
+function getRoleFun(hiddenRoleId){
 	$.ajax({
         type: "GET",
         dataType:"json",
@@ -41,7 +51,11 @@ function getRoleFun(){
             	roleId.empty();
             	var roleOption = "<option value=''>请选择角色</option>";
             	for(var i = 0; i < data.result.length; i++){
-            		roleOption = roleOption + "<option value='" + data.result[i].id + "'>" + data.result[i].name + "</option>";
+            		if(hiddenRoleId == data.result[i].id){
+            			roleOption = roleOption + "<option value='" + data.result[i].id + "' selected='selected'>" + data.result[i].name + "</option>";
+            		}else{
+            			roleOption = roleOption + "<option value='" + data.result[i].id + "'>" + data.result[i].name + "</option>";
+            		}
             	}
             	roleId.append(roleOption);
             }else{
@@ -62,8 +76,9 @@ function saveUser(){
 	    data: $("#saveUserForm").serialize(),
 	    success: function (data) {
             if(data.status == "success"){
-            	alertMsg.info("添加成功");
-            	//$.pdialog.closeCurrent();
+            	alertMsg.info("操作成功");
+            	$.pdialog.closeCurrent();
+            	navTab.reloadFlag("menu_6_5");
             }else{
             	alertMsg.error(data.result);
             }
