@@ -2,6 +2,8 @@ package com.yuer.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,13 +13,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yuer.model.UserMB;
 import com.yuer.service.LoginService;
-import com.yuer.spring.aspect.authuser.AuthUser;
-import com.yuer.util.YResult;
-import com.yuer.util.YuerJsonUtils;
 import com.yuer.util.YuerUtils;
 
 @Controller
 public class LoginController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
 	@Autowired
 	private LoginService loginService;
@@ -30,17 +31,7 @@ public class LoginController {
 	 */
 	@RequestMapping(value="/login",method=RequestMethod.POST,produces = YuerUtils.APPLICATION_JSON)
 	public @ResponseBody String login(HttpServletRequest request, UserMB userMB){
-		String result = loginService.login(request, userMB.getLoginName(), userMB.getPassword());
-		if(result.equals(YuerUtils.SUCCESS)){
-			return YuerJsonUtils.objToJson(new YResult());
-		}
-		if(result.equals(YuerUtils.USER_EMPTY_CODE)){
-			return YuerJsonUtils.objToJson(new YResult("error", YuerUtils.USER_EMPTY_STR));
-		}
-		if(result.equals(YuerUtils.PWD_ERROR_CODE)){
-			return YuerJsonUtils.objToJson(new YResult("error", YuerUtils.PWD_ERROR_STR));
-		}
-		return YuerJsonUtils.objToJson(new YResult("error", YuerUtils.ERROR_STR));
+		return loginService.login(request, userMB.getLoginName(), userMB.getPassword());
 	}
 	
 	/**

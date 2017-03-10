@@ -80,4 +80,15 @@
         <aop:pointcut id="transactionPointcut" expression="execution(* com.yuer.service..*Impl.*(..))" />  
         <aop:advisor pointcut-ref="transactionPointcut" advice-ref="transactionAdvice" />  
     </aop:config>  
+    
+    
+    <!-- <bean id="myHandlerInterceptor1" class="com.yuer.spring.interceptor.MyHandlerInterceptor1"></bean>
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+    	<property name="interceptors">
+    		<list>
+    			<ref bean="myHandlerInterceptor1"/>
+    		</list>
+    	</property>
+    </bean> -->
+    
 </beans>  

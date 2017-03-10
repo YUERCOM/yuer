@@ -16,6 +16,8 @@ import com.yuer.model.MenuMB;
 import com.yuer.model.UserMB;
 import com.yuer.model.util.MenuUtil;
 import com.yuer.model.util.UserUtil;
+import com.yuer.util.YResult;
+import com.yuer.util.YuerJsonUtils;
 import com.yuer.util.YuerUtils;
 
 @Service
@@ -32,12 +34,12 @@ public class LoginService {
 			UserMB userMB = userDao.selectUserByLoginName(loginName);
 			//账号不存在
 			if(userMB == null){
-				return YuerUtils.USER_EMPTY_CODE;
+				return YuerJsonUtils.objToJson(new YResult("error", YuerUtils.USER_EMPTY_STR));
 			}
 			String passwodmd5 = password;//对密码进行MD5加密
 			//密码错误
 			if(!passwodmd5.equals(userMB.getPassword())){
-				return YuerUtils.PWD_ERROR_CODE;
+				return YuerJsonUtils.objToJson(new YResult("error", YuerUtils.PWD_ERROR_STR));
 			}
 			//用户详情
 			UserUtil userUtil = userDao.selectUserInfoById(userMB.getId());
@@ -53,10 +55,10 @@ public class LoginService {
 			//修改最后登录时间
 			userDao.updateUserLastLoginTime(userMB.getId());
 			
-			return YuerUtils.SUCCESS;
+			return YuerJsonUtils.objToJson(new YResult());
 		} catch (Exception e) {
 			e.printStackTrace();
-			return YuerUtils.ERROR;
+			return YuerJsonUtils.objToJson(new YResult("error", YuerUtils.ERROR_STR));
 		}
 	}
 	
