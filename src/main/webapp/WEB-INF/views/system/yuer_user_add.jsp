@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/user/yuer_user_add.js?v=1.002"></script>
+<script type="text/javascript">
+	var staticRoot="${staticRoot}";
+	var rootPath = "${rootPath}";
+</script>
+<script type="text/javascript" src="${staticRoot}/static/js/system/yuer_user_add.js?v=1.002"></script>
 <div class="pageContent">
 	<input id="hidden_sex" type="hidden" value="${userParam.sex }">
 	<input id="hidden_deptId" type="hidden" value="${userParam.deptId }">
@@ -9,12 +13,20 @@
 		<input name="id" type="hidden" value="${userParam.id }">
 		<div class="pageFormContent" layoutH="56">
 			<p>
-				<label>登录名：</label>
-				<input name="loginName" class="required" type="text" size="20" value="${userParam.loginName }"/>
+				<label>登录名<span style="color:red;">*</span>：</label>
+				<input name="loginName" type="text" size="20" value="${userParam.loginName }"/>
 			</p>
 			<p>
-				<label>显示名：</label>
-				<input name="showName" class="required" type="text" size="20" value="${userParam.showName }"/>
+				<label>显示名<span style="color:red;">*</span>：</label>
+				<input name="showName" type="text" size="20" value="${userParam.showName }"/>
+			</p>
+			<p>
+				<label>部门<span style="color:red;">*</span>：</label>
+				<select id="deptId" name="deptId" style="height:22px;width:150px;"></select>
+			</p>
+			<p>
+				<label>角色<span style="color:red;">*</span>：</label>
+				<select id="roleId" name="roleId" style="height:22px;width:150px;"></select>
 			</p>
 			<p>
 				<label>性别：</label>
@@ -31,14 +43,6 @@
 			<p>
 				<label>职务：</label>
 				<input name="job" type="text" size="20" value="${userParam.job }"/>
-			</p>
-			<p>
-				<label>部门：</label>
-				<select id="deptId" name="deptId" style="height:22px;width:150px;"></select>
-			</p>
-			<p>
-				<label>角色：</label>
-				<select id="roleId" name="roleId" style="height:22px;width:150px;"></select>
 			</p>
 		</div>
 		<div class="formBar">

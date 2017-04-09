@@ -4,27 +4,31 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>后台管理系统</title>
-<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath() %>/static/css/themes/default/style.css?v=0.01"/>
-<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath() %>/static/css/themes/css/core.css"/>
-<link rel="stylesheet" type="text/css" media="print" href="<%=request.getContextPath() %>/static/css/themes/css/print.css"/>
-<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath() %>/static/js/uploadify/css/uploadify.css"/>
-<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/sys_main.js?v=0.01"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/jquery-2.1.4.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/jquery.cookie.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/jquery.validate.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/jquery.bgiframe.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/xheditor/xheditor-1.2.2.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/xheditor/xheditor_lang/zh-cn.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/uploadify/scripts/jquery.uploadify.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/chart/raphael.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/chart/g.raphael.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/chart/g.bar.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/chart/g.line.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/chart/g.pie.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/chart/g.dot.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/dwz.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/dwz.regional.zh.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/home.js?v=1.0"></script>
+<script type="text/javascript">
+	var staticRoot = "${staticRoot}";
+	var rootPath = "${rootPath}";
+</script>
+<link rel="stylesheet" type="text/css" media="screen" href="${staticRoot}/static/css/themes/default/style.css?v=0.01"/>
+<link rel="stylesheet" type="text/css" media="screen" href="${staticRoot}/static/css/themes/css/core.css"/>
+<link rel="stylesheet" type="text/css" media="print" href="${staticRoot}/static/css/themes/css/print.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="${staticRoot}/static/js/uploadify/css/uploadify.css"/>
+<script type="text/javascript" src="${staticRoot}/static/js/sys_main.js?v=0.05"></script>
+<script type="text/javascript" src="${staticRoot}/static/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="${staticRoot}/static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="${staticRoot}/static/js/jquery.validate.js"></script>
+<script type="text/javascript" src="${staticRoot}/static/js/jquery.bgiframe.js"></script>
+<script type="text/javascript" src="${staticRoot}/static/js/xheditor/xheditor-1.2.2.min.js"></script>
+<script type="text/javascript" src="${staticRoot}/static/js/xheditor/xheditor_lang/zh-cn.js"></script>
+<script type="text/javascript" src="${staticRoot}/static/js/uploadify/scripts/jquery.uploadify.js"></script>
+<script type="text/javascript" src="${staticRoot}/static/js/chart/raphael.js"></script>
+<script type="text/javascript" src="${staticRoot}/static/js/chart/g.raphael.js"></script>
+<script type="text/javascript" src="${staticRoot}/static/js/chart/g.bar.js"></script>
+<script type="text/javascript" src="${staticRoot}/static/js/chart/g.line.js"></script>
+<script type="text/javascript" src="${staticRoot}/static/js/chart/g.pie.js"></script>
+<script type="text/javascript" src="${staticRoot}/static/js/chart/g.dot.js"></script>
+<script type="text/javascript" src="${staticRoot}/static/js/dwz.min.js"></script>
+<script type="text/javascript" src="${staticRoot}/static/js/dwz.regional.zh.js"></script>
+<script type="text/javascript" src="${staticRoot}/static/js/home.js?v=1.2"></script>
 </head>
 <body>
 <div id="layout">
@@ -55,7 +59,7 @@
 					<div class="accordionContent">
 						<ul class="tree treeFolder">
 							<c:forEach items="${menu.childMenus }" var="childMenu">
-								<li><a href="<%=request.getContextPath() %>${childMenu.url}" target="navTab" rel="${childMenu.code }">${childMenu.name }</a></li>
+								<li><a href="${rootPath}${childMenu.url}" target="navTab" rel="${childMenu.code }">${childMenu.name }</a></li>
 							</c:forEach>
 						</ul>
 					</div>

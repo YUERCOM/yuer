@@ -35,17 +35,10 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/userList",produces = YuerUtils.TEXT_HTML)
 	public String userList(HttpServletRequest request,Model model,UserParam userParam){
-		UserUtil userUtil = (UserUtil) request.getSession().getAttribute(YuerUtils.SESSION_USER);
-		String deptIds = (String) request.getSession().getAttribute(YuerUtils.SESSION_DEPTIDS);
-		if(userUtil == null){
-			return "/index";
-		}
-		userParam.setId(userUtil.getId());
-		userParam.setDeptIds(deptIds);
 		PageInfo<UserUtil> pageInfo = userService.selectUserInfo(userParam);
 		model.addAttribute("pageInfo", pageInfo);
 		model.addAttribute("userParam", userParam);
-		return "user/yuer_user";
+		return "system/yuer_user";
 	}
 	
 	/**
@@ -56,7 +49,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/gotoUserAdd",produces = YuerUtils.TEXT_HTML)
 	public String gotoUserAdd(HttpServletRequest request,Model model){
-		return "user/yuer_user_add";
+		return "system/yuer_user_add";
 	}
 	
 	/**
@@ -70,7 +63,7 @@ public class UserController {
 	public String gotoUserUpdate(HttpServletRequest request,Model model,Integer userId){
 		UserParam userParam = userService.selectByPrimaryKey(userId);
 		model.addAttribute("userParam", userParam);
-		return "user/yuer_user_add";
+		return "system/yuer_user_add";
 	}
 	
 	/**
@@ -90,6 +83,12 @@ public class UserController {
 		}
 		if(YuerValueUtils.stringIsEmpty(userMB.getShowName())){
 			return YuerJsonUtils.objToJson(new YResult("error","显示名不能为空"));
+		}
+		if(userMB.getDeptId() == null){
+			return YuerJsonUtils.objToJson(new YResult("error","部门不能为空"));
+		}
+		if(userMB.getRoleId() == null){
+			return YuerJsonUtils.objToJson(new YResult("error","角色不能为空"));
 		}
 		
 		Integer result = userService.insertSelective(userMB);

@@ -4,4 +4,16 @@
   <select id="selectDeptInfos" resultType="com.yuer.model.DeptMB">
   	select yuerd.id as id,yuerd.name as name from yuer_dept yuerd 
   </select>
+  <select id="deptPageInfo" resultType="com.yuer.model.DeptMB" parameterType="java.util.Map">
+  	select 
+  		yuerd.id as id,
+  		yuerd.name as name,
+  		yuerd.deptDesc as deptDesc,
+  		yuerd.create_time as createTime 
+  	from yuer_dept yuerd 
+  	where 1 = 1 
+  		<if test="name != null and name != ''">
+  			and yuerd.name like '%${name}%'
+  		</if>
+  </select>
 </mapper>

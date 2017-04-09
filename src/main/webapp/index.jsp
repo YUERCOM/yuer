@@ -3,10 +3,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>后台管理系统</title>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/static/css/index.css"/>
-<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/sys_main.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/login_index.js?v=0.01"></script>
+<script type="text/javascript">
+	var staticRoot = "${staticRoot}";
+	var rootPath = "${rootPath}";
+</script>
+<link rel="stylesheet" type="text/css" href="${staticRoot}/static/css/index.css"/>
+<script type="text/javascript" src="${staticRoot}/static/js/sys_main.js"></script>
+<script type="text/javascript" src="${staticRoot}/static/js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="${staticRoot}/static/js/login_index.js"></script>
 </head>
 	<body>
 		<form id="loginForm">

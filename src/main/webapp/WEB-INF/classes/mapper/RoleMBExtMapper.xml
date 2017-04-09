@@ -16,4 +16,8 @@
   	from yuer_role yuerr 
   </select>
   
+  <select id="selectRoleInfo" resultType="com.yuer.model.RoleMB">
+  	
+  </select>
+  
 </mapper>

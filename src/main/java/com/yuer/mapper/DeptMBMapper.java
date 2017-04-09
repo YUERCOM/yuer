@@ -20,4 +20,5 @@ public interface DeptMBMapper {
     int updateByPrimaryKey(DeptMB record);
     
     List<DeptMB> selectDeptInfos();
+    
 }

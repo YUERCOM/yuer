@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<script type="text/javascript" src="<%=request.getContextPath() %>/static/js/user/yuer_user.js?v=0.05"></script>
+<script type="text/javascript">
+	var staticRoot="${staticRoot}";
+	var rootPath = "${rootPath}";
+</script>
+<script type="text/javascript" src="${staticRoot}/static/js/system/yuer_user.js?v=0.05"></script>
 
 <div class="accountInfo">
 	<form id="pagerForm" method="POST" action="<%=request.getContextPath() %>/user/userList">
@@ -11,7 +15,7 @@
 		<input type="hidden" id="hiddenSex" name="sex" value="${userParam.sex }" />
 		<input type="hidden" id="hiddenDeptId" name="deptId" value="${userParam.deptId }" />
 	</form>
-	<form id="" onsubmit="return navTabSearch(this);" method="POST" action="<%=request.getContextPath() %>/user/userList">
+	<form id="" onsubmit="return navTabSearch(this);" method="POST" action="${rootPath}/user/userList">
 		<div class="searchBar" style="margin-top:18px;">
 			<table class="searchContent">
 				<tr>
@@ -43,7 +47,7 @@
 	<div class="panelBar">
 		<ul class="toolBar">
 			<!-- <li><span>添加无权限</span></li> -->
-			<li><a class="add" href="<%=request.getContextPath() %>/user/gotoUserAdd" target="dialog" rel="yuer_user_add" width="400" height="370" fresh="true" mask="true"><span>添加</span></a></li>
+			<li><a class="add" href="${rootPath}/user/gotoUserAdd" target="dialog" rel="yuer_user_add" width="400" height="370" fresh="true" mask="true"><span>添加</span></a></li>
 		</ul>
 	</div>
 	<table class="table" width="100%" layoutH="138">
@@ -75,7 +79,7 @@
 					<td>${user.lastLoginTime }</td>
 					<td>
 						<a title="删除" href="javascript:void(0)" onclick="deleteUser(${user.id})" class="btnDel">删除</a>
-						<a title="编辑" class="btnEdit" target="dialog" href="<%=request.getContextPath() %>/user/gotoUserUpdate?userId=${user.id }" rel="yuer_user_update" width="400" height="370" fresh="true" mask="true">编辑</a>
+						<a title="编辑" class="btnEdit" target="dialog" href="${rootPath}/user/gotoUserUpdate?userId=${user.id }" rel="yuer_user_update" width="400" height="370" fresh="true" mask="true">编辑</a>
 					</td>
 				</tr>
 			</c:forEach>

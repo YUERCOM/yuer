@@ -91,11 +91,4 @@
     	</property>
     </bean> -->
     
-    <mvc:interceptors>
-    	<mvc:interceptor>
-    		<mvc:mapping path="/**/"/>
-    		<bean class="com.yuer.spring.interceptor.MyHandlerInterceptor1"></bean>
-    	</mvc:interceptor>
-    </mvc:interceptors>
-    
 </beans>  

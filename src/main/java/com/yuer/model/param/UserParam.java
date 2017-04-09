@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import com.yuer.model.UserMB;
 import com.yuer.util.YuerJsonUtils;
+import com.yuer.util.YuerValueUtils;
 
 public class UserParam extends ParamModel {
 	
@@ -92,7 +93,7 @@ public class UserParam extends ParamModel {
 			userMB.setLoginName(param.getLoginName());
 			userMB.setShowName(param.getShowName());
 			userMB.setSex(param.getSex());
-			if(param.getBrithday() != null){
+			if(!YuerValueUtils.stringIsEmpty(param.getBrithday())){
 				userMB.setBrithday(sdf.parse(param.getBrithday()));
 			}
 			userMB.setJob(param.getJob());

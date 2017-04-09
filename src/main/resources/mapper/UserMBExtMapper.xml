@@ -57,12 +57,6 @@
 	where 1 = 1 
 		and yueru.dept_id = yuerd.id 
 		and yueru.role_id = yuerr.id 
-		<if test="deptIds == null or deptIds == ''">
-			and yueru.id = #{id} 
-		</if>
-		<if test="deptIds != null and deptIds != ''">
-			and yueru.dept_id in (${deptIds}) 
-		</if>
 		<if test="loginName != null and loginName != ''">
 			and yueru.login_name like '%${loginName}%' 
 		</if>
@@ -72,7 +66,7 @@
 		<if test="deptId != null and deptId != ''">
 			and yueru.dept_id = #{deptId}
 		</if>
-		<if test="sex != null and sex != ''">
+		<if test="sex != null">
 			and yueru.sex = #{sex}
 		</if>
   </select>

@@ -17,15 +17,27 @@ public class LoginHandlerInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response,
 			Object handler) throws Exception{
+		logger.info("===================================================================");
+		logger.info("servletPath:" + request.getServletPath());
+		logger.info("ServletContext:" + request.getServletContext());
+		logger.info("requestURI:" + request.getRequestURI());
+		logger.info("requestURL:" + request.getRequestURL());
+		logger.info("===================================================================");
 		if(request.getServletPath().endsWith("login")){
 			logger.debug("登录页面不需要验证");
 			return true;
 		}
-		if(request.getSession().getAttribute(YuerUtils.SESSION_USER) != null){
-			return true;
+		if(request.getServletPath().endsWith("loginout")){
+			logger.info("退出系统");
+			request.getSession().invalidate();
+			response.sendRedirect(request.getContextPath());
+			return false;
 		}
-		response.sendRedirect(request.getContextPath());
-		return false;
+		if(request.getSession().getAttribute(YuerUtils.SESSION_USER) == null){
+			response.sendRedirect(request.getContextPath());
+			return false;
+		}
+		return true;
 	}
 	
 	

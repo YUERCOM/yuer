@@ -2,7 +2,7 @@ $(function(){
 	$.ajax({
         type: "GET",
         dataType:"json",
-        url:"/manager/dept/getDeptList",
+        url:rootPath + "/dept/getDeptList",
         success: function (data) {
             if(data.status == "success"){
             	var deptId = $("#searchDeptId");
@@ -30,7 +30,7 @@ function deleteUser(id){
 			$.ajax({
 		        type: "POST",
 		        dataType:"json",
-		        url:"/manager/user/deleteUser",
+		        url:rootPath + "/user/deleteUser",
 		        data:{"id":id},
 		        success: function (data) {
 		            if(data.status == "success"){

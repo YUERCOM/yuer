@@ -3,11 +3,11 @@ $(document).ready(function(){
 		$.ajax({
             type: "POST",
             dataType:"json",
-            url: host + "login",
+            url: rootPath + "/login",
             data: $("#loginForm").serializeArray(),
             success: function (data) {
                 if(data.status == "success"){
-                	window.location.href = host + "home/";
+                	window.location.href = rootPath + "/home/";
                 }else{
                 	$("#errorDiv").html(data.result);
                 }

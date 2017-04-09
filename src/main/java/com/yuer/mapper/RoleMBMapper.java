@@ -22,4 +22,6 @@ public interface RoleMBMapper {
     List<Integer> selectDeptIdByRoleId(@Param("roleId")Integer roleId);
     
     List<RoleMB> selectRoleInfos();
+    
+    
 }

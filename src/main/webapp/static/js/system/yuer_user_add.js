@@ -16,7 +16,7 @@ function getDeptFun(hiddenDeptId){
 	$.ajax({
         type: "GET",
         dataType:"json",
-        url:"/manager/dept/getDeptList",
+        url: rootPath + "/dept/getDeptList",
         success: function (data) {
             if(data.status == "success"){
             	var deptId = $("#deptId");
@@ -44,7 +44,7 @@ function getRoleFun(hiddenRoleId){
 	$.ajax({
         type: "GET",
         dataType:"json",
-        url:"/manager/role/getRoleList",
+        url:rootPath + "/role/getRoleList",
         success: function (data) {
             if(data.status == "success"){
             	var roleId = $("#roleId");
@@ -71,7 +71,7 @@ function getRoleFun(hiddenRoleId){
 function saveUser(){
 	$.ajax({
 		type: "POST",
-	    url: "/manager/user/saveUser",
+	    url: rootPath + "/user/saveUser",
 	    dataType:"json",
 	    data: $("#saveUserForm").serialize(),
 	    success: function (data) {

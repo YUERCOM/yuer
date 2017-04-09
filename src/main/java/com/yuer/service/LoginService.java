@@ -45,11 +45,6 @@ public class LoginService {
 			UserUtil userUtil = userDao.selectUserInfoById(userMB.getId());
 			//菜单信息
 			List<MenuMB> menuMBs = menuDao.selectMenusByRoleId(userMB.getRoleId());
-			//查询对应角色管理的部门ID集合
-			List<Integer> deptIds = roleDao.selectDeptIdByRoleId(userMB.getRoleId());
-			if(deptIds != null){
-				request.getSession().setAttribute(YuerUtils.SESSION_DEPTIDS, StringUtils.join(deptIds.toArray(),","));
-			}
 			request.getSession().setAttribute(YuerUtils.SESSION_USER, userUtil);
 			request.getSession().setAttribute(YuerUtils.SESSION_MENUS, getMenuSort(menuMBs));
 			//修改最后登录时间
