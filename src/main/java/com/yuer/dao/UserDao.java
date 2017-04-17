@@ -30,9 +30,11 @@ public class UserDao {
 		userMBMapper.updateUserLastLoginTime(userId);
 	}
 	
-	public PageInfo<UserUtil> selectUserInfo(UserParam userParam){
-		PageHelper.startPage(userParam.getPageNum(), userParam.getNumPerPage());
-		List<UserUtil> list = userMBMapper.selectUserInfo(userParam);
+	public PageInfo<UserUtil> selectUserInfo(UserParam param){
+		if(!param.getIsExport()){
+			PageHelper.startPage(param.getPageNum(), param.getNumPerPage());
+		}
+		List<UserUtil> list = userMBMapper.selectUserInfo(param);
 		return new PageInfo<UserUtil>(list);
 	}
 	

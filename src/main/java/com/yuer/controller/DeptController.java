@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.github.pagehelper.PageInfo;
 import com.yuer.model.DeptMB;
 import com.yuer.model.param.DeptParam;
+import com.yuer.model.util.DeptUtil;
 import com.yuer.service.DeptService;
 import com.yuer.util.YResult;
 import com.yuer.util.YuerJsonUtils;
@@ -32,9 +34,12 @@ public class DeptController {
 		return YuerJsonUtils.objToJson(new YResult(list));
 	}
 	
-	public String deptList(HttpServletRequest request,Model model,DeptParam param){
-		String deptIds = (String) request.getSession().getAttribute(YuerUtils.SESSION_DEPTIDS);
-		return "";
+	@RequestMapping(value = "/deptPageInfo",produces = YuerUtils.TEXT_HTML)
+	public String deptPageInfo(HttpServletRequest request,Model model,DeptParam param){
+		PageInfo<DeptUtil> pageInfo = deptService.deptPageInfo(param);
+		model.addAttribute("pageInfo", pageInfo);
+		model.addAttribute("deptParam", param);
+		return "system/yuer_dept";
 	}
 	
 	

@@ -4,11 +4,11 @@
   <select id="selectDeptInfos" resultType="com.yuer.model.DeptMB">
   	select yuerd.id as id,yuerd.name as name from yuer_dept yuerd 
   </select>
-  <select id="deptPageInfo" resultType="com.yuer.model.DeptMB" parameterType="java.util.Map">
+  <select id="deptPageInfo" resultType="com.yuer.model.util.DeptUtil" parameterType="java.util.Map">
   	select 
   		yuerd.id as id,
   		yuerd.name as name,
-  		yuerd.deptDesc as deptDesc,
+  		yuerd.dept_desc as deptDesc,
   		yuerd.create_time as createTime 
   	from yuer_dept yuerd 
   	where 1 = 1 

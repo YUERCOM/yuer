@@ -1,7 +1,5 @@
 package com.yuer.model.util;
 
-import java.util.Date;
-
 public class UserUtil {
 	private Integer id;
 	private String loginName;

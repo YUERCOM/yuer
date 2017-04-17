@@ -5,6 +5,8 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.yuer.model.DeptMB;
+import com.yuer.model.param.DeptParam;
+import com.yuer.model.util.DeptUtil;
 
 public interface DeptMBMapper {
     int deleteByPrimaryKey(Integer id);
@@ -20,5 +22,7 @@ public interface DeptMBMapper {
     int updateByPrimaryKey(DeptMB record);
     
     List<DeptMB> selectDeptInfos();
+    
+    List<DeptUtil> deptPageInfo(DeptParam param);
     
 }

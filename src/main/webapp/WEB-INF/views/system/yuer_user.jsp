@@ -7,7 +7,7 @@
 <script type="text/javascript" src="${staticRoot}/static/js/system/yuer_user.js?v=0.05"></script>
 
 <div class="accountInfo">
-	<form id="pagerForm" method="POST" action="<%=request.getContextPath() %>/user/userList">
+	<form id="pagerForm" method="POST" action="${rootPath}/user/userList">
 		<input type="hidden" name="pageNum" value="${pageInfo.pageNum }" />
 		<input type="hidden" name="numPerPage" value="${pageInfo.pageSize }" />
 		<input type="hidden" name="loginName" value="${userParam.loginName }" />
